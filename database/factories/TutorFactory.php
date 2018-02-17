@@ -1,6 +1,6 @@
 <?php
 
-use App\Tutor;
+use gkinder\Tutor;
 use Faker\Generator as Faker;
 
 $factory->define(Tutor::class, function (Faker $faker) {

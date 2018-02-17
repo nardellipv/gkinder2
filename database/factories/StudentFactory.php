@@ -1,6 +1,6 @@
 <?php
 
-use App\Student;
+use gkinder\Student;
 use Faker\Generator as Faker;
 
 $factory->define(Student::class, function (Faker $faker) {

@@ -1,6 +1,6 @@
 <?php
 
-use App\Message;
+use gkinder\Message;
 use Faker\Generator as Faker;
 
 $factory->define(Message::class, function (Faker $faker) {
