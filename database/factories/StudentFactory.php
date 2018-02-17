@@ -1,0 +1,15 @@
+<?php
+
+use App\Student;
+use Faker\Generator as Faker;
+
+$factory->define(Student::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+        'last_name' => $faker->lastname,
+        'dni' => $faker->numberBetween($min = 40000000, $max = 60000000),
+        'sex' => $faker->randomElement($array = array('H', 'M')),
+        'birth_date' => $faker->dateTimeBetween($startDate = '-4 years', $endDate = 'now', $timezone = null),
+        'school_id' => rand(1, 20),
+    ];
+});
