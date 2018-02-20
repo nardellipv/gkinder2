@@ -11,7 +11,7 @@ $factory->define(School::class, function (Faker $faker) {
         'cp' => $faker->numberBetween($min = 1000, $max = 9000),
         'phone' => $faker->phoneNumber,
         'active' => $faker->randomElement($array = array('ACTIVE', 'DISABLE')),
-        'account' => $faker->randomElement($array = array('BASIC', 'PRO')),
+        'account' => $faker->randomElement($array = array('BASIC', 'PRO','TEST')),
         'url' => $faker->url,
         'email' => $faker->email,
     ];

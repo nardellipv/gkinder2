@@ -1,9 +1,9 @@
 <?php
 
-use gkinder\Teacher;
+use gkinder\NewsLetter;
 use Illuminate\Database\Seeder;
 
-class TeacherTableSeeder extends Seeder
+class NewsLetterTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class TeacherTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Teacher::class, 50)->create();
+        factory(NewsLetter::class, 100)->create();
     }
 }

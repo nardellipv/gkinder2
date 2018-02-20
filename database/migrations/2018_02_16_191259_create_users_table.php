@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
 
             $table->string('password');
 
-            $table->integer('school_id')->unsigned();
+            $table->integer('school_id')->unsigned()->nullable();
 
             $table->rememberToken();
             $table->timestamps();
