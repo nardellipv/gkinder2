@@ -22,7 +22,7 @@ class CreateSchoolsTable extends Migration
             $table->integer('cp');
             $table->string('phone');
             $table->enum('active', ['ACTIVE', 'DISABLE']);
-            $table->enum('account', ['BASIC', 'PRO']);
+            $table->enum('account', ['BASIC', 'PRO', 'TEST']);
             $table->string('url')->nullable();
             $table->string('email', 150)->unique();
 

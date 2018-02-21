@@ -2,6 +2,7 @@
 
 namespace gkinder;
 
+use gkinder\Notifications\CustomResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -30,5 +31,10 @@ class User extends Authenticatable
     public function School()
     {
         return $this->belongsTo(School::class);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new CustomResetPasswordNotification($token));
     }
 }

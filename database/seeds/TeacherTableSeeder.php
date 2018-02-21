@@ -1,6 +1,6 @@
 <?php
 
-use App\Teacher;
+use gkinder\Teacher;
 use Illuminate\Database\Seeder;
 
 class TeacherTableSeeder extends Seeder
