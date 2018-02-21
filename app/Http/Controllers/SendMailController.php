@@ -6,6 +6,7 @@ use gkinder\Mail\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class SendMailController extends Controller
 {
@@ -20,7 +21,8 @@ class SendMailController extends Controller
 
         // Test mail...
 
-        Mail::to('example@gmail.com')->send(new Contact($valueArray));
-        return Redirect::to('/login');
+        Mail::to('info@gkinder.com')->send(new Contact($valueArray));
+        Session::flash('message', 'Su email fue enviado, le responderemos a la brevedad. Muchas gracias.');
+        return Redirect::to('/login#horizontalTab5');
     }
 }

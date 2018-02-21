@@ -4,8 +4,8 @@
         @if (Session::has('message'))
         <p class="resp-tab-item resp-tab-active">{!! Session::get('message') !!}</p>
         @endif
-        @if (count($errors) > 0)
         
+        @if (count($errors) > 0)        
         <div class="resp-tab-item resp-tab-active">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -116,7 +116,7 @@
                             <div class="register agileits">
                                 <h3>Novedades</h3>
                                 {!! Form::open(['method' => 'POST','route' => ['newsLetter'],'style'=>'display:inline']) !!} {{ csrf_field() }}
-                                <input type="text" class="email" name="email" placeholder="Email" required="">
+                                <input type="email" class="email" name="email" placeholder="Email" required="">
                                 <input type="submit" value="Darme de alta">
                                 <div class="clear"></div>
                                 {!! form::Close() !!}
