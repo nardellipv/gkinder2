@@ -129,18 +129,18 @@
                                     <input type="text" class="email" name="email" placeholder="Email" required="">
                                     <input type="submit" value="Enviar mail">
                                     <div class="clear"></div>
-                                </form>
+                                {!! form::Close() !!}
                             </div>
                         </div>
                         <div class="tab-1 resp-tab-content">
                             <div class="agile-send-mail">
                                 <h3>Formulario de contacto</h3>
-                                <form action="#" method="post">
-                                    <input type="text" class="name" name="username" placeholder="Your Name" required="">
-                                    <input type="text" class="email" name="email" placeholder="Your Email" required="">
-                                    <textarea name="your message" placeholder="Your Message"></textarea>
-                                    <input type="submit" value="Send Email">
-                                </form>
+                                {!! Form::open(['method' => 'POST','route' => ['sendemail'],'style'=>'display:inline']) !!} {{ csrf_field() }}                                
+                                    <input type="text" class="name" name="name" placeholder="Nombre" required="">
+                                    <input type="text" class="email" name="email" placeholder="EMail" required="">
+                                    <textarea name="message" placeholder="Su Mensaje"></textarea>
+                                    <input type="submit" value="Enviar Email">
+                                {!! form::Close() !!}
                             </div>
                         </div>
                     </div>
