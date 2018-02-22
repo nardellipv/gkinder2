@@ -14,7 +14,7 @@
         <ul class="sidebar-menu">
             <li class="header">Menú</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-dashboard"></i> <span>Panel Principal</span></a></li>
+        <li class="active"><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Panel Principal</span></a></li>
             <li><a href="#"><i class="fa fa-users"></i> <span>Listado Alumnos</span></a></li>
             <li><a href="#"><i class="fa fa-user"></i> <span>Listado Docentes</span></a></li>
             <li><a href="#"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span></a></li>
