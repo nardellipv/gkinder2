@@ -1,7 +1,8 @@
 <?php
 
-namespace gkinder\Http\Controllers;
+namespace gkinder\Http\Controllers\School;
 
+use gkinder\Http\Controllers\Controller;
 use gkinder\Http\Requests\NewsLetterRequest;
 use gkinder\NewsLetter;
 use Illuminate\Support\Facades\Redirect;

@@ -1,7 +1,8 @@
 <?php
 
-namespace gkinder\Http\Controllers;
+namespace gkinder\Http\Controllers\School;
 
+use gkinder\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller

@@ -1,9 +1,10 @@
 <?php
 
-namespace gkinder\Http\Controllers;
+namespace gkinder\Http\Controllers\School;
 
 use DB;
 use gkinder\Calendar;
+use gkinder\Http\Controllers\Controller;
 use gkinder\Room;
 use gkinder\Student;
 use gkinder\Teacher;
