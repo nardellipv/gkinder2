@@ -21,8 +21,10 @@ class CreateStudentsTable extends Migration
             $table->string('dni');
             $table->enum('sex', ['H', 'M']);
             $table->date('birth_date');
+            $table->mediumText('observation')->nullable();
             $table->integer('school_id')->unsigned();
             $table->integer('room_id')->unsigned();
+            $table->integer('tutor_id')->unsigned();
 
             $table->timestamps();
 
@@ -31,8 +33,12 @@ class CreateStudentsTable extends Migration
             $table->foreign('school_id')->references('id')->on('schools')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            
-                $table->foreign('room_id')->references('id')->on('rooms')
+
+            $table->foreign('room_id')->references('id')->on('rooms')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('tutor_id')->references('id')->on('tutors')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

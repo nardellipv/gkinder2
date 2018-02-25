@@ -17,12 +17,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($nextEvents as $event)      
+                @foreach ($nextEvents as $event)
                 <tr>
                     <td>{{ $event->activity }}</td>
                     <td>{{ substr($event->description,0,100) }}...</td>
                     <td>{{ $event->date }}</td>
-                    <td>{{ $event->name }}</td>                    
+                    <td>{{ $event->name }}</td>
                 </tr>
                 @endforeach
         </table>

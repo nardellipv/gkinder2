@@ -12,11 +12,12 @@ class StudentTableSeeder extends Seeder
      */
     public function run()
     {
-        // factory(Student::class, 200)->create();
-        factory(Student::class, 200)->create()->each(function (Student $student) {
-            $student->tutors()->attach([
-                rand(1, 50),
-            ]);
-        });
+        factory(Student::class, 200)->create();
+        /* factory(Student::class, 200)->create()->each(function (Student $student) {
+    $student->tutors()->attach([
+    rand(1, 50),
+    rand(51, 100),
+    ]);
+    }); */
     }
 }

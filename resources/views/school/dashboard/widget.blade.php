@@ -24,10 +24,10 @@
       </div>
       <div class="icon">
         <i class="fa fa-home"></i>
-      </div>  
+      </div>
       <a href="#" class="small-box-footer">
           Ir al listado de salas <i class="fa fa-arrow-circle-down"></i>
-        </a>    
+        </a>
     </div>
   </div>
   <!-- ./col -->

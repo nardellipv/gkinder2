@@ -22,8 +22,10 @@ class CreateTutorsTable extends Migration
             $table->string('dni');
             $table->string('address');
             $table->string('email', 150)->unique();
+            $table->mediumText('observation')->nullable();
 
             $table->timestamps();
+
         });
     }
 

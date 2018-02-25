@@ -1,7 +1,7 @@
 <?php
 
-use gkinder\Tutor;
 use Faker\Generator as Faker;
+use gkinder\Tutor;
 
 $factory->define(Tutor::class, function (Faker $faker) {
     return [
@@ -11,5 +11,6 @@ $factory->define(Tutor::class, function (Faker $faker) {
         'dni' => $faker->numberBetween($min = 10000000, $max = 35000000),
         'address' => $faker->address,
         'email' => $faker->unique()->email,
+        'observation' => $faker->paragraph($nbSentences = 100, $variableNbSentences = true),
     ];
 });
