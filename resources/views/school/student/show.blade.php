@@ -1,10 +1,7 @@
 @extends('school.layouts.main') 
-@section('style')
-<link rel="stylesheet" href={{ asset( 'vendor/iCheck/all.css') }}>
-<link rel="stylesheet" href={{ asset( 'vendor/datepicker/datepicker3.css') }}>
-@endsection
- 
-@section('content')
+@section('content') @if (Session::has('message'))
+<p class="alert alert-info">{!! Session::get('message') !!}</p>
+@endif
 <div class="box box-solid box-success">
     <div class="box-header with-border">
         <h3 class="box-title">Datos Alumno</h3>
@@ -115,15 +112,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="dni" class="col-sm-2 control-label">Nacimiento</label>
+                                    <label for="fecha" class="col-sm-2 control-label">Nacimiento</label>
                                     <div class="col-sm-10">
-                                        <div class="input-group date ">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                        <input type="text" class="form-control pull-right" name="fecha" id="datepicker" 
-                                            value="{{$student->birth_date}}">
-                                        </div>
+                                        <input type="date" name="fecha" class="form-control"  value="{{$student->birth_date}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -157,41 +148,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="dni" class="col-sm-2 control-label">Observaciones</label>
+                                    <label for="dni" class="col-sm-2 control-label">Foto</label>
+                                    <div class="col-sm-10">
+                                        <div class="form-group">
+                                            <input type="file" id="exampleInputFile">
+                                        </div>
+                                    </div>
                                     <div class="form-group">
-                                        <textarea name="observation" class="form-control" rows="10">{{$student->observation}}</textarea>
+                                        <label for="dni" class="col-sm-2 control-label">Observaciones</label>
+                                        <div class="form-group">
+                                            <textarea name="observation" class="form-control" rows="10">{{$student->observation}}</textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Actualizar</button>
-                                        <a href="{{url('school/estudiantes')}}" class="btn btn-primary">Cancelar</a>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                                            <a href="{{url('school/estudiantes')}}" class="btn btn-primary">Cancelar</a>
+                                        </div>
                                     </div>
+                                    {!! form::close() !!}
                                 </div>
-                                {!! form::close() !!}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
+        </div>
     </div>
-</div>
-@endsection
- 
-@section('scripts')
-<script src={{ asset( '/vendor/input-mask/jquery.inputmask.js') }}></script>
-<script src={{ asset( '/vendor/input-mask/jquery.inputmask.date.extensions.js') }}></script>
-<script src={{ asset( '/vendor/input-mask/jquery.inputmask.extensions.js') }}></script>
-<script src={{ asset( '/vendor/datepicker/bootstrap-datepicker.js') }}></script>
-<script src={{ asset( '/vendor/iCheck/icheck.min.js') }}></script>
-<script>
-    $(function () {      
-      //Datemask dd/mm/yyyy
-      $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-      $('#datepicker').datepicker({
-        autoclose: true
-      });
-    });
-</script>
 @endsection

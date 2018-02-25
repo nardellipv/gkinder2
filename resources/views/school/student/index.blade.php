@@ -3,7 +3,9 @@
 @section('style')
 <link rel="stylesheet" href={{ asset( 'vendor/datatables/dataTables.bootstrap.css') }}>
 @endsection
-
+@section('content') @if (Session::has('message'))
+<p class="alert alert-danger">{!! Session::get('message') !!}</p>
+@endif
 <div class="box box-solid box-success">
     <div class="box-header">
         <h3 class="box-title">Listado de alumnos</h3>
@@ -37,12 +39,13 @@
                     <td>{{$student->tutor->phone}}</td>
                     <td>
                         <div class="btn-group">
-                        <a href="{{url('school/estudiantes', $student->id)}}" class="btn btn-primary">Ver</a>
-                            <a href="{{url('estudiantes/edit', $student->id)}}" class="btn btn-primary">Editar</a>
-                            <a href="" class="btn btn-danger">Eliminar</a>
+                        <a href="{{url('school/estudiantes', $student->id)}}" class="btn btn-primary">Perfil</a>
+                        <button type="button" class="btn bg-red waves-effect waves-light" data-toggle="modal" 
+                            data-target="#deleteStudentModal-{{$student->id}}">Eliminar</button>
                         </div>
                     </td>
                 </tr>
+                @include('school.student.delete')
                 @endforeach
         </table>
     </div>

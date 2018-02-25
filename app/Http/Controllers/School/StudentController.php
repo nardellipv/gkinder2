@@ -9,6 +9,7 @@ use gkinder\Student;
 use gkinder\Tutor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class StudentController extends Controller
 {
@@ -66,7 +67,6 @@ class StudentController extends Controller
         $student->name = $request['name'];
         $student->last_name = $request['last_name'];
         $student->dni = $request['dni'];
-        $student->dni = $request['dni'];
         $student->birth_date = $request['fecha'];
         $student->room_id = $request['room_id'];
         $student->tutor_id = $request['tutor_id'];
@@ -76,15 +76,19 @@ class StudentController extends Controller
         $rooms = Room::where('school_id', '=', auth()->user()->school_id)
             ->get();
 
-        $tutors = Tutor::leftjoin('Students', 'students.tutor_id', '=', 'tutors.id')
-            ->where('students.school_id', auth()->user()->school_id)
+        $tutors = Tutor::where('school_id', '=', auth()->user()->school_id)
             ->get();
 
+        Session::flash('message', 'Perfil editado correctamente');
         return view('school.student.show', compact('student', 'rooms', 'tutors'));
     }
 
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student->delete();
+
+        Session::flash('message', 'Alumno <b>' . $student->name . ' ' . $student->lastname . '</b> eliminado correctamente');
+        return view('school.student.show');
     }
 }
