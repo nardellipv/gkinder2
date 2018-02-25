@@ -3,7 +3,6 @@
 namespace gkinder\Http\Controllers\School;
 
 use gkinder\Http\Controllers\Controller;
-use gkinder\Http\Requests\StudentRequest;
 use gkinder\Room;
 use gkinder\School;
 use gkinder\Student;
@@ -60,12 +59,19 @@ class StudentController extends Controller
         return view('school.student.show', compact('students'));
     }
 
-    public function update(StudentRequest $request, $id)
+    public function update(Request $request, $id)
     {
+
         $student = Student::find($id);
-        // $student->name = $request['name'];
-        // $student->update();
-        $student->fill($request->all())->save();
+        $student->name = $request['name'];
+        $student->last_name = $request['last_name'];
+        $student->dni = $request['dni'];
+        $student->dni = $request['dni'];
+        $student->birth_date = $request['fecha'];
+        $student->room_id = $request['room_id'];
+        $student->tutor_id = $request['tutor_id'];
+        $student->observation = $request['observation'];
+        $student->update();
 
         $rooms = Room::where('school_id', '=', auth()->user()->school_id)
             ->get();

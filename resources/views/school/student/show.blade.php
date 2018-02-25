@@ -1,4 +1,9 @@
 @extends('school.layouts.main') 
+@section('style')
+<link rel="stylesheet" href={{ asset( 'vendor/iCheck/all.css') }}>
+<link rel="stylesheet" href={{ asset( 'vendor/datepicker/datepicker3.css') }}>
+@endsection
+ 
 @section('content')
 <div class="box box-solid box-success">
     <div class="box-header with-border">
@@ -46,9 +51,13 @@
                         </ul>
                         <div class="tab-content">
                             <div class="active tab-pane" id="observation">
+                                @if($student->observation)
                                 <p>
                                     {!! $student->observation !!}
                                 </p>
+                                @else
+                                <p class="text-light-blue">Este alumno no posee observaciones</p>
+                                @endif
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="data">
@@ -86,32 +95,43 @@
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="edit">
-                                {!! Form::model($student, ['method' => 'PATCH','route' => ['estudiantes.update', $student->id]]) !!} 
-                                {{ csrf_field() }}
+                                {!! Form::model($student, ['method' => 'PATCH','route' => ['estudiantes.update', $student->id]]) !!} {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Nombre</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name" value="{{$student->name}}">
+                                        <input type="text" class="form-control" id="name" name="name" value="{{$student->name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="lastname" class="col-sm-2 control-label">Apellido</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="lastname" name="last_name" value="{{$student->name}}">
+                                        <input type="text" class="form-control" id="lastname" name="last_name" value="{{$student->last_name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="dni" class="col-sm-2 control-label">DNI</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="dni" class="form-control" id="dni" value="{{$student->dni}}">
+                                        <input type="number" name="dni" class="form-control" id="dni" value="{{$student->dni}}" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dni" class="col-sm-2 control-label">Nacimiento</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group date ">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                        <input type="text" class="form-control pull-right" name="fecha" id="datepicker" 
+                                            value="{{$student->birth_date}}">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="dni" class="col-sm-2 control-label">Salas</label>
                                     <div class="col-sm-10">
-                                        <select name="room_id" class="form-control">
+                                        <select name="room_id" class="form-control" required>
                                                 <optgroup label="Sala actual">
-                                                    <option value="">{{$student->room->name}}</option> 
+                                                    <option value="{{$student->room->id}}">{{$student->room->name}}</option> 
                                                 </optgroup>                                               
                                                 <optgroup label="Salas disponibles">
                                                 @foreach ($rooms as $room)
@@ -124,12 +144,12 @@
                                 <div class="form-group">
                                     <label for="dni" class="col-sm-2 control-label">Tutor</label>
                                     <div class="col-sm-10">
-                                        <select name="tutor_id" class="form-control">
+                                        <select name="tutor_id" class="form-control" required>
                                                 <optgroup label="Tutor">
-                                                    <option value="">{{$student->tutor->name}} {{$student->tutor->last_name}}</option> 
+                                                    <option value="{{$student->tutor->id}}">{{$student->tutor->name}} {{$student->tutor->last_name}}</option> 
                                                 </optgroup>                                               
-                                                <optgroup label="Cambiar tutor">
-                                                @foreach ($tutors as $tutor)
+                                                <optgroup label="Cambiar tutor">                                                        
+                                                @foreach ($tutors as $tutor)                                                
                                                     <option value="{{$tutor->id}}">{{$tutor->name}} {{$tutor->last_name}}</option>
                                                 @endforeach
                                                 </optgroup>                       
@@ -157,4 +177,21 @@
         </section>
     </div>
 </div>
+@endsection
+ 
+@section('scripts')
+<script src={{ asset( '/vendor/input-mask/jquery.inputmask.js') }}></script>
+<script src={{ asset( '/vendor/input-mask/jquery.inputmask.date.extensions.js') }}></script>
+<script src={{ asset( '/vendor/input-mask/jquery.inputmask.extensions.js') }}></script>
+<script src={{ asset( '/vendor/datepicker/bootstrap-datepicker.js') }}></script>
+<script src={{ asset( '/vendor/iCheck/icheck.min.js') }}></script>
+<script>
+    $(function () {      
+      //Datemask dd/mm/yyyy
+      $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+      $('#datepicker').datepicker({
+        autoclose: true
+      });
+    });
+</script>
 @endsection

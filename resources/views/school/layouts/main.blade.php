@@ -44,7 +44,7 @@
     <!-- ./wrapper -->
     <!-- REQUIRED JS SCRIPTS -->    
     <!-- jQuery 2.2.3 -->
-    <script src={{ asset( '../vendor/jQuery/jquery-2.2.3.min.js') }}></script>
+    <script src={{ asset( 'vendor/jQuery/jquery-2.2.3.min.js') }}></script>
     <!-- Bootstrap 3.3.7 -->
     <script src={{ asset( 'bootstrap/js/bootstrap.min.js') }}></script>
     <!-- AdminLTE App -->
