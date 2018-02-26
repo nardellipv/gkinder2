@@ -16,7 +16,7 @@
             <!-- Optionally, you can add icons to the links -->
             <li><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Panel Principal</span></a></li>
             <li><a href="{{url('school/estudiantes')}}"><i class="fa fa-users"></i> <span>Listado Alumnos</span></a></li>
-            <li><a href="#"><i class="fa fa-user"></i> <span>Listado Docentes</span></a></li>
+            <li><a href="{{url('school/profesores')}}"><i class="fa fa-user"></i> <span>Listado Docentes</span></a></li>
             <li><a href="#"><i class="fa fa-user"></i> <span>Listado Padres</span></a></li>
             <li><a href="#"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span></a></li>
             <li><a href="#"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>

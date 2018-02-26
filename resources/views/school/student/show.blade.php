@@ -1,5 +1,6 @@
 @extends('school.layouts.main') 
-@section('content') @if (Session::has('message'))
+@section('content') 
+@if (Session::has('message'))
 <p class="alert alert-info">{!! Session::get('message') !!}</p>
 @endif
 <div class="box box-solid box-success">
@@ -12,9 +13,9 @@
                 <div class="col-md-3">
                     <div class="box box-primary">
                         <div class="box-body box-profile">
-                            @if($student->url)
-                        <a href="{{asset ($student->url)}}" target="_blank">
-                        <img class="img-responsive img-rectangle" src="{{asset ($student->url)}}" alt="fotoUsuario">
+                            @if($student->photo)
+                        <a href="{{asset ($student->photo)}}" target="_blank">
+                        <img class="img-responsive img-rectangle" src="{{asset ($student->photo)}}" alt="fotoUsuario">
                             </a>
                             @else
                             <img class="img-responsive" src="{{asset ('dist/img/boy.png')}}" alt="fotoUsuario">

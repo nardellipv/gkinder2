@@ -75,7 +75,7 @@ class StudentController extends Controller
         if ($request->file) {
 
             $path = Storage::disk('public')->put('fotos/alumnos', $request->file);
-            $student->url = $path;
+            $student->photo = $path;
         }
         $student->update();
 
@@ -88,7 +88,7 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->delete();
 
-        Session::flash('message', 'Alumno <b>' . $student->name . ' ' . $student->lastname . '</b> eliminado correctamente');
+        Session::flash('message', 'Alumno <b>' . $student->name . ' ' . $student->last_name . '</b> eliminado correctamente');
         return back();
     }
 }

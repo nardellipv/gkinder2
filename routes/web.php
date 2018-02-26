@@ -18,4 +18,5 @@ Route::post('sendemail', 'School\SendMailController@ship')->name('sendemail');
 Route::get('school/home', 'School\HomeController@view')->name('home');
 Route::resource('school/salas', 'School\RoomController');
 Route::resource('school/estudiantes', 'School\StudentController');
+Route::resource('school/profesores', 'School\TeacherController');
 Route::resource('school/calendario', 'School\CalendarController');

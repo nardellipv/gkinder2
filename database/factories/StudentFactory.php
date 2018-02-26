@@ -11,7 +11,7 @@ $factory->define(Student::class, function (Faker $faker) {
         'sex' => $faker->randomElement($array = array('NENA', 'NENE')),
         'birth_date' => $faker->dateTimeBetween($startDate = '-4 years', $endDate = 'now', $timezone = null),
         'observation' => $faker->paragraph($nbSentences = 150, $variableNbSentences = true),
-        'url' => $faker->imageUrl($width = 640, $height = 480),
+        'photo' => $faker->imageUrl($width = 640, $height = 480),
         'school_id' => rand(1, 20),
         'room_id' => rand(1, 20),
         'tutor_id' => rand(1, 100),

@@ -21,6 +21,8 @@ class CreateTeachersTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('email', 150)->unique();
+            $table->string('photo')->nullable();
+            $table->mediumText('observation')->nullable();
             $table->integer('school_id')->unsigned();
             $table->integer('room_id')->unsigned();
 

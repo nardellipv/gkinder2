@@ -7,7 +7,7 @@
                 <h4 class="modal-title" id="defaultModalLabel">¡Eliminar Estudiante!</h4>
             </div>
             <div class="modal-body">
-                ¿Esta seguro de eliminar al Estudiante <b>{{ $student->name }} {{ $student->last_name}}</b>?
+                ¿Está seguro de eliminar al Estudiante <b>{{ $student->name }} {{ $student->last_name}}</b>?
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-outline">Eliminar</button>

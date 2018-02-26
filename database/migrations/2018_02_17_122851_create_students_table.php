@@ -22,7 +22,7 @@ class CreateStudentsTable extends Migration
             $table->enum('sex', ['NENA', 'NENE']);
             $table->date('birth_date');
             $table->mediumText('observation')->nullable();
-            $table->string('url')->nullable();
+            $table->string('photo')->nullable();
             $table->integer('school_id')->unsigned();
             $table->integer('room_id')->unsigned();
             $table->integer('tutor_id')->unsigned();
