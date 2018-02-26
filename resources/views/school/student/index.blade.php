@@ -17,10 +17,9 @@
                 <tr>
                     <th width="100">Nombre</th>
                     <th>Apellido</th>
-                    <th>DNI</th>
-                    <th>Sexo</th>
-                    <th>Años</th>
-                    <th>Cumpleaños</th>
+                    <th>DNI</th>                    
+                    <th>Años</th>                    
+                    <th>Sala</th>
                     <th>Tutor</th>
                     <th>Tel de contacto</th>
                     <th>Acciones</th>
@@ -31,10 +30,9 @@
                 <tr>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->last_name }}</td>
-                    <td>{{ $student->dni }}</td>
-                    <td>{{ $student->sex }}</td>
-                    <td>{{ Date::parse($student->birth_date)->age }}</td>
-                    <td>{{ Date::parse($student->birth_date)->format('d-m') }}</td>
+                    <td>{{ $student->dni }}</td>                    
+                    <td>{{ Date::parse($student->birth_date)->age }}</td>                    
+                    <td>{{ $student->room->name }}</td>
                     <td>{{$student->tutor->name}}</td>
                     <td>{{$student->tutor->phone}}</td>
                     <td>

@@ -10,6 +10,7 @@ use gkinder\Tutor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
@@ -44,8 +45,7 @@ class StudentController extends Controller
         $rooms = Room::where('school_id', '=', auth()->user()->school_id)
             ->get();
 
-        $tutors = Tutor::leftjoin('Students', 'students.tutor_id', '=', 'tutors.id')
-            ->where('students.school_id', auth()->user()->school_id)
+        $tutors = Tutor::where('school_id', '=', auth()->user()->school_id)
             ->get();
 
         return view('school.student.show', compact('student', 'rooms', 'tutors'));
@@ -62,7 +62,6 @@ class StudentController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $student = Student::find($id);
         $student->name = $request['name'];
         $student->last_name = $request['last_name'];
@@ -70,17 +69,18 @@ class StudentController extends Controller
         $student->birth_date = $request['fecha'];
         $student->room_id = $request['room_id'];
         $student->tutor_id = $request['tutor_id'];
+        $student->sex = $request['sex'];
         $student->observation = $request['observation'];
+
+        if ($request->file) {
+
+            $path = Storage::disk('public')->put('fotos/alumnos', $request->file);
+            $student->url = $path;
+        }
         $student->update();
 
-        $rooms = Room::where('school_id', '=', auth()->user()->school_id)
-            ->get();
-
-        $tutors = Tutor::where('school_id', '=', auth()->user()->school_id)
-            ->get();
-
         Session::flash('message', 'Perfil editado correctamente');
-        return view('school.student.show', compact('student', 'rooms', 'tutors'));
+        return back();
     }
 
     public function destroy($id)
@@ -89,6 +89,6 @@ class StudentController extends Controller
         $student->delete();
 
         Session::flash('message', 'Alumno <b>' . $student->name . ' ' . $student->lastname . '</b> eliminado correctamente');
-        return view('school.student.show');
+        return back();
     }
 }

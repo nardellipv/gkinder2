@@ -23,6 +23,7 @@ class CreateTutorsTable extends Migration
             $table->string('address');
             $table->string('email', 150)->unique();
             $table->mediumText('observation')->nullable();
+            $table->integer('school_id')->unsigned();
 
             $table->timestamps();
 

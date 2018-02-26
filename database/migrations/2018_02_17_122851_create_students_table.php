@@ -19,9 +19,10 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('dni');
-            $table->enum('sex', ['H', 'M']);
+            $table->enum('sex', ['NENA', 'NENE']);
             $table->date('birth_date');
             $table->mediumText('observation')->nullable();
+            $table->string('url')->nullable();
             $table->integer('school_id')->unsigned();
             $table->integer('room_id')->unsigned();
             $table->integer('tutor_id')->unsigned();

@@ -12,7 +12,13 @@
                 <div class="col-md-3">
                     <div class="box box-primary">
                         <div class="box-body box-profile">
-                            <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+                            @if($student->url)
+                        <a href="{{asset ($student->url)}}" target="_blank">
+                        <img class="img-responsive img-rectangle" src="{{asset ($student->url)}}" alt="fotoUsuario">
+                            </a>
+                            @else
+                            <img class="img-responsive" src="{{asset ('dist/img/boy.png')}}" alt="fotoUsuario">
+                            @endif
                             <h3 class="profile-username text-center">{{$student->name}}</h3>
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
@@ -92,7 +98,8 @@
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="edit">
-                                {!! Form::model($student, ['method' => 'PATCH','route' => ['estudiantes.update', $student->id]]) !!} {{ csrf_field() }}
+                                {!! Form::model($student, ['method' => 'PATCH','route' => ['estudiantes.update', $student->id],'enctype' => 'multipart/form-data']) !!} 
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Nombre</label>
                                     <div class="col-sm-10">
@@ -114,11 +121,11 @@
                                 <div class="form-group">
                                     <label for="fecha" class="col-sm-2 control-label">Nacimiento</label>
                                     <div class="col-sm-10">
-                                        <input type="date" name="fecha" class="form-control"  value="{{$student->birth_date}}">
+                                        <input type="date" name="fecha" class="form-control" value="{{$student->birth_date}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="dni" class="col-sm-2 control-label">Salas</label>
+                                    <label for="room_id" class="col-sm-2 control-label">Salas</label>
                                     <div class="col-sm-10">
                                         <select name="room_id" class="form-control" required>
                                                 <optgroup label="Sala actual">
@@ -133,7 +140,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="dni" class="col-sm-2 control-label">Tutor</label>
+                                    <label for="tutor_id" class="col-sm-2 control-label">Tutor</label>
                                     <div class="col-sm-10">
                                         <select name="tutor_id" class="form-control" required>
                                                 <optgroup label="Tutor">
@@ -148,10 +155,25 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="sex" class="col-sm-2 control-label">Sexo</label>
+                                    <div class="col-sm-10">
+                                        <select name="sex" class="form-control" required>
+                                                <optgroup label="sex">
+                                                    <option value="{{$student->sex}}">{{$student->sex}}</option> 
+                                                </optgroup>                                               
+                                                <optgroup label="Cambiar tutor">                                                                                        
+                                                    <option value="NENA">Nena</option>
+                                                    <option value="NENE">Nene</option>                                
+                                                </optgroup>                       
+                                            </select>
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group">
                                     <label for="dni" class="col-sm-2 control-label">Foto</label>
                                     <div class="col-sm-10">
                                         <div class="form-group">
-                                            <input type="file" id="exampleInputFile">
+                                            <input type="file" name="file" id="exampleInputFile">
                                         </div>
                                     </div>
                                     <div class="form-group">

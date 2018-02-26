@@ -12,5 +12,6 @@ $factory->define(Tutor::class, function (Faker $faker) {
         'address' => $faker->address,
         'email' => $faker->unique()->email,
         'observation' => $faker->paragraph($nbSentences = 100, $variableNbSentences = true),
+        'school_id' => rand(1, 20),
     ];
 });
