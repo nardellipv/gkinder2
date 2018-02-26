@@ -18,7 +18,7 @@
                         <img class="img-responsive img-rectangle" src="{{asset ($teacher->photo)}}" alt="fotoUsuario">
                             </a>
                             @else
-                            <img class="img-responsive" src="{{asset ('dist/img/boy.png')}}" alt="fotoUsuario">
+                            <img class="img-responsive" src="{{asset ('dist/img/docente.png')}}" alt="fotoUsuario">
                             @endif
                             <h3 class="profile-username text-center">{{$teacher->name}}</h3>
                             <ul class="list-group list-group-unbordered">
