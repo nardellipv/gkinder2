@@ -57,4 +57,12 @@ class HomeController extends Controller
             'countEvents' => $countEvents,
         ]);
     }
+
+    public function create()
+    {
+        $teachers = Teacher::where('school_id', '=', Auth::User()->school_id)
+            ->get();
+
+        return view('school.home', compact('teachers'));
+    }
 }

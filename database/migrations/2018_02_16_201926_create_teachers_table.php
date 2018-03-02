@@ -24,7 +24,7 @@ class CreateTeachersTable extends Migration
             $table->string('photo')->nullable();
             $table->mediumText('observation')->nullable();
             $table->integer('school_id')->unsigned();
-            $table->integer('room_id')->unsigned();
+            $table->integer('room_id')->unsigned()->nullable();
 
             $table->timestamps();
 

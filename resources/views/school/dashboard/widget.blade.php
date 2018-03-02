@@ -9,7 +9,7 @@
       <div class="icon">
         <i class="fa fa-users"></i>
       </div>
-      <a href="#" class="small-box-footer">
+      <a href="{{url('school/estudiantes')}}" class="small-box-footer">
           Ir al listado de alumnos <i class="fa fa-arrow-circle-right"></i>
         </a>
     </div>
@@ -41,7 +41,7 @@
       <div class="icon">
         <i class="ion ion-person"></i>
       </div>
-      <a href="#" class="small-box-footer">
+      <a href="{{url('school/profesores')}}" class="small-box-footer">
           Ir al listado de profesores <i class="fa fa-arrow-circle-right"></i>
         </a>
     </div>

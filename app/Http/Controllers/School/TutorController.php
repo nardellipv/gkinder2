@@ -21,12 +21,25 @@ class TutorController extends Controller
 
     public function create()
     {
-        //
+        return view('school.tutor.create');
     }
 
     public function store(Request $request)
     {
-        //
+        $tutor = new Tutor;
+        $tutor->name = $request['nombre'];
+        $tutor->last_name = $request['apellido'];
+        $tutor->phone = $request['telefono'];
+        $tutor->dni = $request['dni'];
+        $tutor->email = $request['email'];
+        $tutor->address = $request['direccion'];
+        $tutor->observation = $request['observation'];
+        $tutor->school_id = auth()->user()->school_id;
+
+        $tutor->save();
+
+        Session::flash('message', 'Tutor <b>' . $tutor->name . ' ' . $tutor->last_name . '</b> creado correctamente');
+        return back();
     }
 
     public function show($id)

@@ -20,12 +20,12 @@
         <td>{{ $room->created_at->format('d/m/y') }}</td>
         <td>
           <div class="btn-group">
-            <button type="button" class="btn bg-purple waves-effect waves-light" data-toggle="modal" data-target="#roomEditModal-{{$room->id}}">Editar</button>
+            <a href="{{url('school/salas', $room->id)}}" class="btn btn-primary">Editar</a>
             <button type="button" class="btn bg-red waves-effect waves-light" data-toggle="modal" data-target="#roomDeleteModal-{{$room->id}}">Eliminar</button>
           </div>
         </td>
       </tr>
-      @include('school.room.edit')
+
       @include('school.room.delete')
       @endforeach
     </table>

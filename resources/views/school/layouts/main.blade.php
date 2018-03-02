@@ -29,11 +29,11 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                @yield('content')
+
             </section>
             <!-- Main content -->
             <section class="content">
-                <!-- Your Page Content Here -->
+                @yield('content')
             </section>
             <!-- /.content -->
         </div>

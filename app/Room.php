@@ -19,4 +19,9 @@ class Room extends Model
     {
         return $this->belongsTo(Calendar::class);
     }
+
+    public function Teacher()
+    {
+        return $this->hasOne(Teacher::class);
+    }
 }

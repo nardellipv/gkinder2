@@ -30,12 +30,38 @@ class StudentController extends Controller
 
     public function create()
     {
-        //
+        $rooms = Room::where('school_id', '=', auth()->user()->school_id)
+            ->get();
+
+        $tutors = Tutor::where('school_id', '=', auth()->user()->school_id)
+            ->get();
+
+        return view('school.student.create', compact('rooms', 'tutors', 'rooms'));
     }
 
     public function store(Request $request)
-    {
-        //
+    {        
+        $student = new Student;
+        $student->name = $request['nombre'];
+        $student->last_name = $request['apellido'];
+        $student->dni = $request['dni'];
+        $student->sex = $request['sexo'];
+        $student->birth_date = $request['fecha'];
+        $student->room_id = $request['room_id'];
+        $student->tutor_id = $request['tutor_id'];
+        $student->observation = $request['observation'];
+        $student->school_id = auth()->user()->school_id;
+
+        if ($request->file) {
+
+            $path = Storage::disk('public')->put('fotos/alumnos', $request->file);
+            $student->photo = $path;
+        }
+
+        $student->save();
+
+        Session::flash('message', 'Alumno <b>' . $student->name . ' ' . $student->last_name . '</b> creado correctamente');
+        return back();
     }
 
     public function show($id)

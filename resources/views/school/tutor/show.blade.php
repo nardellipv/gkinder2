@@ -1,6 +1,6 @@
-@extends('school.layouts.main') 
+@extends('school.layouts.main')
 @section('content') @if (Session::has('message'))
-<p class="alert alert-info">{!! Session::get('message') !!}</p>
+    <p class="alert alert-info">{!! Session::get('message') !!}</p>
 @endif
 <div class="box box-solid box-success">
     <div class="box-header with-border">
@@ -45,11 +45,11 @@
                         <div class="tab-content">
                             <div class="active tab-pane" id="observation">
                                 @if($tutor->observation)
-                                <p>
-                                    {!! $tutor->observation !!}
-                                </p>
+                                    <p>
+                                        {!! $tutor->observation !!}
+                                    </p>
                                 @else
-                                <p class="text-light-blue">Este tutor no posee observaciones</p>
+                                    <p class="text-light-blue">Este tutor no posee observaciones</p>
                                 @endif
                             </div>
                             <!-- /.tab-pane -->
@@ -57,12 +57,13 @@
                                 <div class="box-body">
                                     <dl class="dl-horizontal">
                                         @foreach ($students as $student)
-                                        <dt>Alumno Nombre:</dt>
-                                        <dd>{{$student->name}} {{$student->last_name}}</dd>
-                                        <dt>Sala:</dt>
-                                        <dd>{{$student->room->name}}</dd>
-                                        <dd><a href="{{url('school/estudiantes', $student->id)}}" class="btn btn-primary">Ir al Perfil del alumno</a></dd>
-                                        <br /> @endforeach
+                                            <dt>Alumno Nombre:</dt>
+                                            <dd>{{$student->name}} {{$student->last_name}}</dd>
+                                            <dt>Sala:</dt>
+                                            <dd>{{$student->room->name}}</dd>
+                                            <dd><a href="{{url('school/estudiantes', $student->id)}}"
+                                                   class="btn btn-primary">Ir al Perfil del alumno</a></dd>
+                                            <br/> @endforeach
                                     </dl>
                                 </div>
                             </div>
@@ -73,25 +74,29 @@
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Nombre</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name" value="{{$tutor->name}}" required>
+                                        <input type="text" class="form-control" id="name" name="name"
+                                               value="{{$tutor->name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="lastname" class="col-sm-2 control-label">Apellido</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="lastname" name="last_name" value="{{$tutor->last_name}}" required>
+                                        <input type="text" class="form-control" id="lastname" name="last_name"
+                                               value="{{$tutor->last_name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="col-sm-2 control-label">Teléfono</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="phone" class="form-control" id="phone" value="{{$tutor->phone}}" required>
+                                        <input type="text" name="phone" class="form-control" id="phone"
+                                               value="{{$tutor->phone}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="col-sm-2 control-label">Dirección</label>
                                     <div class="col-sm-10">
-                                        <textarea name="address" class="form-control" rows="3">{{$tutor->address}}</textarea>
+                                        <textarea name="address" class="form-control"
+                                                  rows="3">{{$tutor->address}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -103,19 +108,21 @@
                                 <div class="form-group">
                                     <label for="student_id" class="col-sm-2 control-label">Alumnos</label>
                                     <div class="col-sm-10">
-                                        <select name="student_id" class="form-control">                                                    
-                                                        <option value="">Asignar otro alumno</option>                                                   
-                                                    @foreach ($otherStudent as $oStudent)                                                
-                                                        <option value="{{$oStudent->id}}">{{$oStudent->name}} {{$oStudent->last_name}}</option>
-                                                    @endforeach
-                                                    </optgroup>                       
-                                                </select>
+                                        <select name="student_id" class="form-control">
+                                            <option value="">Asignar otro alumno</option>
+                                            <optgroup>
+                                                @foreach ($otherStudent as $oStudent)
+                                                    <option value="{{$oStudent->id}}">{{$oStudent->name}} {{$oStudent->last_name}}</option>
+                                                @endforeach
+                                            </optgroup>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="observation" class="col-sm-2 control-label">Observaciones</label>
                                     <div class="form-group">
-                                        <textarea name="observation" class="form-control" rows="10">{{$tutor->observation}}</textarea>
+                                        <textarea name="observation" class="form-control"
+                                                  rows="10">{{$tutor->observation}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -124,7 +131,7 @@
                                         <a href="{{url('school/estudiantes')}}" class="btn btn-primary">Cancelar</a>
                                     </div>
                                 </div>
-                                {!! form::close() !!}
+                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>

@@ -15,22 +15,24 @@
             <li class="header">Menú</li>
             <!-- Optionally, you can add icons to the links -->
             <li><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Panel Principal</span></a></li>
-            <li><a href="{{url('school/estudiantes')}}"><i class="fa fa-users"></i> <span>Listado Alumnos</span></a></li>
-            <li><a href="{{url('school/profesores')}}"><i class="fa fa-user"></i> <span>Listado Docentes</span></a></li>
+            <li><a href="{{url('school/estudiantes')}}"><i class="fa fa-users"></i> <span>Listado Alumnos</span></a>
+            </li>
+            <li><a href="{{url('school/profesores')}}"><i class="fa fa-user"></i> <span>Listado Profesores</span></a>
+            </li>
             <li><a href="{{url('school/tutores')}}"><i class="fa fa-user"></i> <span>Listado Tutores</span></a></li>
             <li><a href="#"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span></a></li>
             <li><a href="#"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-user-plus"></i> <span>Agregar</span>
-    <span class="pull-right-container">
+                    <span class="pull-right-container">
       <i class="fa fa-angle-left pull-right"></i>
     </span>
-  </a>
+                </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Agregar Alumno</a></li>
-                    <li><a href="#">Agregar Padres/Tutores</a></li>
-                    <li><a href="#">Agregar Docente</a></li>
-                    <li><a href="#">Agregar Salas</a></li>
+                    <li><a href="{{url('school/estudiantes/create')}}">Agregar Alumno</a></li>
+                    <li><a href="{{url('school/tutores/create')}}">Agregar Padre/Tutor</a></li>
+                    <li><a href="{{url('school/profesores/create')}}">Agregar Profesor</a></li>
+                    <li><a href="{{url('school/salas/create')}}">Agregar Sala</a></li>
                 </ul>
             </li>
         </ul>
