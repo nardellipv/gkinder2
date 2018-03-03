@@ -8,7 +8,7 @@ class Message extends Model
 {
     public $timestamps = false;
 
-    protected $filliable = [
+    protected $fillable = [
         'title', 'body', 'date',
     ];
 

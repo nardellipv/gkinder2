@@ -4,6 +4,7 @@ namespace gkinder\Http\Controllers\Auth;
 
 use gkinder\Http\Controllers\Controller;
 use gkinder\User;
+use gkinder\School;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 
@@ -42,7 +43,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -57,16 +58,25 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \gkinder\User
      */
     protected function create(array $data)
     {
-        return User::create([
+        $school = School::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+        ]);
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'user_type' => 'ADMIN',
             'password' => bcrypt($data['password']),
+            'school_id' => $school->id,
         ]);
+
+
+        return $user;
     }
 }

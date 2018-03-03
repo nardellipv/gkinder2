@@ -20,8 +20,8 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        {{-- <img src="{{ asset('dist/img/logo-profile.png') }}" class="img-circle" alt="imagen-perfil">                        --}}
-                        <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                    {{-- <img src="{{ asset('dist/img/logo-profile.png') }}" class="img-circle" alt="imagen-perfil">--}}
+                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">{{Auth::user()->name}} <i class="fa fa-angle-down"></i></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -36,13 +36,13 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                <a href="{{URL('school/perfil', auth()->user()->school_id)}}" class="btn btn-default btn-flat">Perfil</a>
                             </div>
                             <div class="pull-right">
                                 <a class="btn btn-default btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                Salir
-                            </a>
+                                    Salir
+                                </a>
                             </div>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf

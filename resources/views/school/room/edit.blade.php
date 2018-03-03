@@ -1,5 +1,6 @@
 @extends('school.layouts.main')
-@section('content') @if (Session::has('message'))
+@section('content')
+@if (Session::has('message'))
     <p class="alert alert-success">{!! Session::get('message') !!}</p>
 @endif
 <div class="box box-solid box-success">

@@ -19,7 +19,7 @@ class CreateSchoolsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('city');
-            $table->integer('cp');
+            $table->integer('cp')->nullable();
             $table->string('phone');
             $table->enum('active', ['ACTIVE', 'DISABLE']);
             $table->enum('account', ['BASIC', 'PRO', 'TEST']);

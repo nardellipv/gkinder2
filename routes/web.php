@@ -23,3 +23,7 @@ Route::resource('school/profesores', 'School\TeacherController');
 Route::resource('school/tutores', 'School\TutorController');
 
 Route::resource('school/calendario', 'School\CalendarController');
+
+Route::patch('school/perfil/actualizar/colegio/{id}', 'School\SchoolController@updateSchool')->name('actualizar.colegio');
+Route::patch('school/perfil/actualizar/usuario/{id}', 'School\SchoolController@updateUser')->name('actualizar.usuario');
+Route::resource('school/perfil', 'School\SchoolController');
