@@ -12,7 +12,7 @@ class Tutor extends Model
 
     public function Messages()
     {
-        return $this->belongsToMany(Message::class);
+        return $this->hasMany(Message::class);
     }
 
     public function Students()

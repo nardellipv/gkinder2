@@ -20,7 +20,7 @@
             <li><a href="{{url('school/profesores')}}"><i class="fa fa-user"></i> <span>Listado Profesores</span></a>
             </li>
             <li><a href="{{url('school/tutores')}}"><i class="fa fa-user"></i> <span>Listado Tutores</span></a></li>
-            <li><a href="#"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span></a></li>
+            <li><a href="{{url('school/mensajes')}}"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span></a></li>
             <li><a href="#"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-user-plus"></i> <span>Agregar</span>

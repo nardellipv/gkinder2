@@ -27,3 +27,8 @@ Route::resource('school/calendario', 'School\CalendarController');
 Route::patch('school/perfil/actualizar/colegio/{id}', 'School\SchoolController@updateSchool')->name('actualizar.colegio');
 Route::patch('school/perfil/actualizar/usuario/{id}', 'School\SchoolController@updateUser')->name('actualizar.usuario');
 Route::resource('school/perfil', 'School\SchoolController');
+
+Route::resource('school/mensajes', 'School\MessageController');
+Route::get('school/mensajes/responder/{id}', 'School\MessageController@respond')->name('responder');
+
+Route::resource('school/correo/enviados', 'School\ComunicationController');

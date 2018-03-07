@@ -12,9 +12,9 @@ class Message extends Model
         'title', 'body', 'date',
     ];
 
-    public function tutors()
+    public function tutor()
     {
-        return $this->belongsToMany(Tutor::class);
+        return $this->belongsTo(Tutor::class);
     }
 
     public function schools()
