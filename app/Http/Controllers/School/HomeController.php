@@ -31,7 +31,7 @@ class HomeController extends Controller
 
         $nextEvents = Calendar::where('calendars.school_id', '=', Auth::User()->school_id)
             ->join('rooms', 'rooms.id', '=', 'calendars.room_id')
-            ->where('date', '>=', now())
+            ->where('date_start', '>=', now())
             ->get();
 
         //counts
@@ -45,7 +45,7 @@ class HomeController extends Controller
             ->count();
 
         $countEvents = Calendar::where('school_id', '=', Auth::User()->school_id)
-            ->where('date', '>=', now())
+            ->where('date_start', '>=', now())
             ->count();
 
         return view('school.home', [

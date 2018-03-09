@@ -32,3 +32,5 @@ Route::resource('school/mensajes', 'School\MessageController');
 Route::get('school/mensajes/responder/{id}', 'School\MessageController@respond')->name('responder');
 
 Route::resource('school/correo/enviados', 'School\ComunicationController');
+
+Route::resource('calendario', 'School\CalendarController');

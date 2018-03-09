@@ -21,7 +21,7 @@
             </li>
             <li><a href="{{url('school/tutores')}}"><i class="fa fa-user"></i> <span>Listado Tutores</span></a></li>
             <li><a href="{{url('school/mensajes')}}"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span></a></li>
-            <li><a href="#"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>
+            <li><a href="{{url('school/calendario')}}"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-user-plus"></i> <span>Agregar</span>
                     <span class="pull-right-container">
@@ -33,6 +33,7 @@
                     <li><a href="{{url('school/tutores/create')}}">Agregar Padre/Tutor</a></li>
                     <li><a href="{{url('school/profesores/create')}}">Agregar Profesor</a></li>
                     <li><a href="{{url('school/salas/create')}}">Agregar Sala</a></li>
+                    <li><a href="{{url('school/calendario/create')}}">Crear Evento en el calendario</a></li>
                 </ul>
             </li>
         </ul>

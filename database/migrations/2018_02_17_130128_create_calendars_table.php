@@ -18,17 +18,13 @@ class CreateCalendarsTable extends Migration
 
             $table->string('activity');
             $table->mediumText('description');
-            $table->date('date');
+            $table->dateTime('date_start');
+            $table->dateTime('date_end');
             $table->integer('room_id')->unsigned();
             $table->integer('school_id')->unsigned();
 
-            $table->timestamps();
-
             //relaciones
 
-            $table->foreign('room_id')->references('id')->on('rooms')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
 
             $table->foreign('school_id')->references('id')->on('schools')
                 ->onDelete('cascade')
