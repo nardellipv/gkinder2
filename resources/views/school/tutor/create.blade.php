@@ -29,10 +29,13 @@
             </div>
             <div class="col-xs-4">
                 <div class="form-group">
-                    <textarea name="direccion" class="form-control input-lg" rows="4" placeholder="Direccion" required></textarea>
+                    <textarea name="direccion" class="form-control input-lg" rows="3" placeholder="Direccion" required></textarea>
                 </div>
                 <div class="form-group">
-                    <textarea name="observation" class="form-control input-lg" rows="6" placeholder="Observaciones"></textarea>
+                    <textarea name="observation" class="form-control input-lg" rows="4" placeholder="Observaciones"></textarea>
+                </div>
+                <div class="form-group">
+                    <input class="form-control input-lg" type="password" placeholder="contraseña" name="password" required>
                 </div>
             </div>
             <div class="form-group col-md-6 col-md-offset-4">

@@ -30,6 +30,7 @@ class TutorStoreRequest extends FormRequest
             'dni'=> 'required|numeric',
             'direccion'=> 'required|min:4',
             'email'=> 'required|email|unique:teachers,email',
+            'password'=>'requerid|min:6'
         ];
     }
 }

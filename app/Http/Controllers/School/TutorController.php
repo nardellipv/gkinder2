@@ -3,11 +3,12 @@
 namespace gkinder\Http\Controllers\School;
 
 use gkinder\Http\Controllers\Controller;
+use gkinder\Http\Requests\School\TutorStoreRequest;
+use gkinder\User;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 use gkinder\Student;
 use gkinder\Tutor;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class TutorController extends Controller
 {
@@ -24,9 +25,12 @@ class TutorController extends Controller
         return view('school.tutor.create');
     }
 
-    public function store(Request $request)
+    public function store(TutorStoreRequest $request)
     {
+
+        //salvar como tutor
         $tutor = new Tutor;
+
         $tutor->name = $request['nombre'];
         $tutor->last_name = $request['apellido'];
         $tutor->phone = $request['telefono'];
@@ -37,6 +41,17 @@ class TutorController extends Controller
         $tutor->school_id = auth()->user()->school_id;
 
         $tutor->save();
+
+        //salvar como usuario
+        $tutorUser = new User;
+
+        $tutorUser->name = $request['nombre'];
+        $tutorUser->email = $request['email'];
+        $tutorUser->password = bcrypt($request['password']);
+        $tutorUser->school_id = auth()->user()->school_id;
+
+        $tutorUser->save();
+
 
         Session::flash('message', 'Tutor <b>' . $tutor->name . ' ' . $tutor->last_name . '</b> creado correctamente');
         return back();
@@ -51,11 +66,6 @@ class TutorController extends Controller
             ->get();
 
         return view('school.tutor.show', compact('tutor', 'students', 'otherStudent'));
-    }
-
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request, $id)
