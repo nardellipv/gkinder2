@@ -12,9 +12,9 @@ class Calendar extends Model
         'activity', 'description', 'date', 'room_id', 'school_id',
     ];
 
-    public function rooms()
+    public function Room()
     {
-        return $this->hasMany(Room::class);
+        return $this->belongsTo(Room::class);
     }
 
     public function School()

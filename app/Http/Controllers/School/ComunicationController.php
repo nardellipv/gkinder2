@@ -34,13 +34,19 @@ class ComunicationController extends Controller
     public function store(Request $request)
     {
 
+        $tutor_id = $request->tutor_id;
 
+        foreach ($tutor_id as $tutor) {
             $comunication = new Comunication();
             $comunication->school_id = auth()->user()->school_id;
             $comunication->date = now();
-            $comunication->fill($request->all())->save();
+            $comunication->title = $request['title'];
+            $comunication->body = $request['body'];
+            $comunication->tutor_id = $tutor;
+            $comunication->save();
+        }
 
-
+        Session::flash('message', 'El mensaje <b>' . $comunication->title . '</b> fue enviado correctamente');
         return back();
     }
 

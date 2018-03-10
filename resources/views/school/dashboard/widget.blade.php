@@ -57,7 +57,7 @@
       <div class="icon">
         <i class="fa fa-calendar"></i>
       </div>
-      <a href="#" class="small-box-footer">
+      <a href="{{url('school/calendario')}}" class="small-box-footer">
           Ir al calendario <i class="fa fa-arrow-circle-right"></i>
         </a>
     </div>

@@ -13,25 +13,34 @@
         </div>
         {!! Form::open(['method' => 'POST','route' => ['calendario.store'],'style'=>'display:inline']) !!}
         {{ csrf_field() }}
-            <div class="box-body">
-                <div class="form-group">
-                    <label for="activity">Actividad</label>
-                    <input type="text" class="form-control" id="activity" name="activity" placeholder="Actividad">
-                </div>
-                <div class="form-group">
-                    <label>Descripción</label>
-                    <textarea class="form-control" name="description" rows="3" placeholder="Descripción"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="activity">Rango de Fecha</label>
-                    <input type="text" id="date_range" name="date_range" class="form-control" value="">
-                </div>
+        <div class="box-body">
+            <div class="form-group">
+                <label for="activity">Actividad</label>
+                <input type="text" class="form-control" id="activity" name="activity" placeholder="Actividad" required>
             </div>
-            <!-- /.box-body -->
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea class="form-control" name="description" rows="3" placeholder="Descripción"
+                          required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Sala</label>
+                <select class="form-control" name="room_id" required>
+                    @foreach($rooms as $room)
+                        <option value="{{$room->id}}">{{$room->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="activity">Rango de Fecha</label>
+                <input type="text" id="date_range" name="date_range" class="form-control" value="">
+            </div>
+        </div>
+        <!-- /.box-body -->
 
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Crear Evento</button>
-            </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Crear Evento</button>
+        </div>
         {!! Form::Close() !!}
     </div>
 @endsection
@@ -41,7 +50,7 @@
 
     <script type="text/javascript">
         $('#date_range').daterangepicker();
-        $(function() {
+        $(function () {
             $('input[name="date_range"]').daterangepicker({
                 timePicker: true,
                 "startDate": false,

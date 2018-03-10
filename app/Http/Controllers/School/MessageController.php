@@ -22,12 +22,12 @@ class MessageController extends Controller
 
     public function create()
     {
-        //
+        dd('dasdas');
     }
 
     public function store(Request $request)
     {
-        //
+        dd('dasdas');
     }
 
     public function show($id)
@@ -39,12 +39,12 @@ class MessageController extends Controller
 
     public function edit($id)
     {
-
+        dd('dasdas');
     }
 
     public function update(Request $request, $id)
     {
-        //
+        dd('dasdas');
     }
 
     public function respond($id)

@@ -10,5 +10,6 @@ $factory->define(Calendar::class, function (Faker $faker) {
         'date_start' => $faker->dateTimeBetween($startDate = '-4 month', $endDate = now(), $timezone = null),
         'date_end' => $faker->dateTimeBetween($startDate = '-4 month', $endDate = now(), $timezone = null),
         'school_id' => rand(1, 20),
+        'room_id' => rand(1, 140),
     ];
 });

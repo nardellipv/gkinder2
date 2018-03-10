@@ -4,6 +4,9 @@
     <link rel="stylesheet" href={{ asset( 'vendor/select2/select2.min.css') }}>
 @endsection
 @section('content')
+    @if (Session::has('message'))
+        <p class="alert alert-success">{!! Session::get('message') !!}</p>
+    @endif
     <div class="box box-solid box-success">
         <div class="box-header with-border">
             <h3 class="box-title">Enviar Mensaje</h3>

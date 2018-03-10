@@ -19,4 +19,6 @@ class Room extends Model
     {
         return $this->hasOne(Teacher::class);
     }
+
+
 }

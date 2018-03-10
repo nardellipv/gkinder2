@@ -2,6 +2,7 @@
 
 namespace gkinder\Http\Controllers\School;
 
+use gkinder\Room;
 use Illuminate\Support\Facades\Session;
 use gkinder\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -31,7 +32,10 @@ class CalendarController extends Controller
 
     public function create()
     {
-        return view('school.calendar.create');
+        $rooms = Room::where('school_id', auth()->user()->school_id)
+            ->get();
+
+        return view('school.calendar.create', compact('rooms'));
     }
 
     public function store(Request $request)
@@ -46,6 +50,7 @@ class CalendarController extends Controller
         $calendar->description = $request['description'];
         $calendar->date_start = $date_start;
         $calendar->date_end = $date_end;
+        $calendar->room_id = $request['room_id'];
         $calendar->school_id = auth()->user()->school_id;
 
         $calendar->save();
@@ -58,7 +63,10 @@ class CalendarController extends Controller
     {
         $calendar = Calendar::find($id);
 
-        return view('school.calendar.edit', compact('calendar'));
+        $rooms = Room::where('school_id', auth()->user()->school_id)
+            ->get();
+
+        return view('school.calendar.edit', compact('calendar','rooms'));
     }
 
     public function update(Request $request, $id)

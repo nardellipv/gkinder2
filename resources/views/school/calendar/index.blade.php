@@ -5,7 +5,6 @@
           media='print'>
 @endsection
 @section('content')
-    @include('school.calendar.edit_event_table')
     <div class="box box-solid box-success">
         <div class="box-header with-border">
             <h3 class="box-title">Calendario</h3>

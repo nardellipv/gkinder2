@@ -30,7 +30,7 @@ class HomeController extends Controller
             ->get();
 
         $nextEvents = Calendar::where('calendars.school_id', '=', Auth::User()->school_id)
-            ->join('rooms', 'rooms.id', '=', 'calendars.room_id')
+//            ->join('rooms', 'rooms.id', '=', 'calendars.room_id')
             ->where('date_start', '>=', now())
             ->get();
 

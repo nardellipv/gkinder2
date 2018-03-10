@@ -25,8 +25,11 @@ class CreateCalendarsTable extends Migration
 
             //relaciones
 
-
             $table->foreign('school_id')->references('id')->on('schools')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('room_id')->references('id')->on('rooms')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
