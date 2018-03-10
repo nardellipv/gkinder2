@@ -2,31 +2,17 @@
 
 namespace gkinder\Http\Controllers\School;
 
+use gkinder\Http\Requests\School\ProfileSchoolRequest;
+use gkinder\Http\Requests\School\ProfileUserRequest;
 use gkinder\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use gkinder\School;
 use gkinder\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class SchoolController extends Controller
 {
-    public function index()
-    {
-        //
-    }
 
-    public function create()
-    {
-
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function updateSchool(Request $request, $id)
+    public function updateSchool(ProfileSchoolRequest $request, $id)
     {
         $school = School::find($id);
         $school->name = $request['nombre'];
@@ -43,7 +29,7 @@ class SchoolController extends Controller
         return back();
     }
 
-    public function updateUser(Request $request, $id)
+    public function updateUser(ProfileUserRequest $request, $id)
     {
         $user = User::find($id);
         $user->name = $request['nombre'];
@@ -66,18 +52,4 @@ class SchoolController extends Controller
         return view('school.profile.edit', compact('school', 'user'));
     }
 
-    public function edit($id)
-    {
-
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -3,20 +3,26 @@
     <link rel="stylesheet" href={{ asset( 'vendor/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}>
 @endsection
 @section('content')
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
     <div class="box box-solid box-success">
         <div class="box-header with-border">
             <h3 class="box-title">Mensajes Recibidos</h3>
         </div>
+        {!! Form::model($message, ['method' => 'PATCH','route' => ['mensajes.update', $message->id]]) !!}
+        {{ csrf_field() }}
         <div class="box-body">
             <div class="form-group">
-                <input class="form-control" placeholder="To:" value="{{$message->tutor->name}}">
+                <input class="form-control" name="to" placeholder="To:" value="{{$message->tutor->name}}" readonly>
             </div>
 
             <div class="form-group">
-                <input class="form-control" placeholder="Subject:" value="RE: {{$message->title}}">
+                <input class="form-control" name="subject" placeholder="Subject:" value="RE: {{$message->title}}">
             </div>
             <div class="form-group">
-                    <textarea id="compose-textarea" class="form-control" style="height: 200px">
+                    <textarea id="compose-textarea" name="body" class="form-control" style="height: 200px">
                         <br><br>
                         {!! $message->body !!}
                     </textarea>
@@ -28,6 +34,7 @@
             </div>
             <a href="{{url('school/mensajes')}}" class="btn btn-default"><i class="fa fa-times"></i> Canceler</a>
         </div>
+        {!! Form::Close() !!}
     </div>
 @endsection
 @section('scripts')

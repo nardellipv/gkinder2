@@ -9,7 +9,7 @@ class Calendar extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'activity', 'description', 'date', 'room_id', 'school_id',
+        'activity', 'description', 'date_start', 'date_end', 'room_id', 'school_id',
     ];
 
     public function Room()

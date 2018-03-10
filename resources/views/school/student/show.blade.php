@@ -1,8 +1,9 @@
 @extends('school.layouts.main') 
-@section('content') 
-@if (Session::has('message'))
-<p class="alert alert-success">{!! Session::get('message') !!}</p>
-@endif
+@section('content')
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
 <div class="box box-solid box-success">
     <div class="box-header with-border">
         <h3 class="box-title">Datos Alumno</h3>
@@ -104,13 +105,13 @@
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Nombre</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name" value="{{$student->name}}" required>
+                                        <input type="text" class="form-control" id="name" name="nombre" value="{{$student->name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="lastname" class="col-sm-2 control-label">Apellido</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="lastname" name="last_name" value="{{$student->last_name}}" required>
+                                        <input type="text" class="form-control" id="lastname" name="apellido" value="{{$student->last_name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -158,7 +159,7 @@
                                 <div class="form-group">
                                     <label for="sex" class="col-sm-2 control-label">Sexo</label>
                                     <div class="col-sm-10">
-                                        <select name="sex" class="form-control" required>
+                                        <select name="sexo" class="form-control" required>
                                                 <optgroup label="sex">
                                                     <option value="{{$student->sex}}">{{$student->sex}}</option> 
                                                 </optgroup>                                               

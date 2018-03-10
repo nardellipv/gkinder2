@@ -2,11 +2,12 @@
 
 namespace gkinder\Http\Controllers\School;
 
+use gkinder\Http\Requests\School\MessageRequest;
 use gkinder\Http\Controllers\Controller;
-use gkinder\Message;
 use Illuminate\Support\Facades\Session;
+use gkinder\Comunication;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use gkinder\Message;
 
 class MessageController extends Controller
 {
@@ -42,9 +43,26 @@ class MessageController extends Controller
         dd('dasdas');
     }
 
-    public function update(Request $request, $id)
+    public function update(MessageRequest $request, $id)
     {
-        dd('dasdas');
+
+        $message = Message::find($id);
+
+        $message->fill($request->all())->save();
+
+
+        $comunication = new Comunication;
+
+        $comunication->title = $request['subject'];
+        $comunication->body = $request['body'];
+        $comunication->date = now();
+        $comunication->school_id = auth()->user()->school_id;
+        $comunication->tutor_id = $message->tutor_id;
+        $comunication->save();
+
+
+        Session::flash('message', 'La respuesta <b>' . $message->title . '</b> fue enviada correctamente');
+        return back();
     }
 
     public function respond($id)

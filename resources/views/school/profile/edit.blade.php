@@ -1,8 +1,9 @@
 @extends('school.layouts.main')
 @section('content')
-    @if (Session::has('message'))
-        <p class="alert alert-info">{!! Session::get('message') !!}</p>
-    @endif
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
     <div class="box box-solid box-success">
         <div class="box-header with-border">
             <h3 class="box-title">Perfil Colegio</h3>

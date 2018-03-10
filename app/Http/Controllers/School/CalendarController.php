@@ -2,12 +2,13 @@
 
 namespace gkinder\Http\Controllers\School;
 
-use gkinder\Room;
-use Illuminate\Support\Facades\Session;
+use gkinder\Http\Requests\School\CalendarStoreRequest;
 use gkinder\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use gkinder\Calendar;
+use gkinder\Http\Requests\School\CalendarUpdateRequest;
+use Illuminate\Support\Facades\Session;
 use Jenssegers\Date\Date;
+use gkinder\Calendar;
+use gkinder\Room;
 
 class CalendarController extends Controller
 {
@@ -38,7 +39,7 @@ class CalendarController extends Controller
         return view('school.calendar.create', compact('rooms'));
     }
 
-    public function store(Request $request)
+    public function store(CalendarStoreRequest $request)
     {
 
         $date_start = substr($request->date_range, 0, 19);
@@ -69,7 +70,8 @@ class CalendarController extends Controller
         return view('school.calendar.edit', compact('calendar','rooms'));
     }
 
-    public function update(Request $request, $id)
+
+    public function update(CalendarUpdateRequest $request, $id)
     {
 
         $calendar = Calendar::find($id);

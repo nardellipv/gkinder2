@@ -48,7 +48,6 @@ class TutorController extends Controller
         $tutorUser->name = $request['nombre'];
         $tutorUser->email = $request['email'];
         $tutorUser->password = bcrypt($request['password']);
-        $tutorUser->school_id = auth()->user()->school_id;
 
         $tutorUser->save();
 
@@ -68,7 +67,7 @@ class TutorController extends Controller
         return view('school.tutor.show', compact('tutor', 'students', 'otherStudent'));
     }
 
-    public function update(Request $request, $id)
+    public function update(TeacherUpdateRequest $request, $id)
     {
         $tutor = Tutor::find($id);
         $tutor->name = $request['name'];

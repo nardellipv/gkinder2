@@ -2,15 +2,14 @@
 
 namespace gkinder\Http\Controllers\School;
 
+use gkinder\Http\Requests\School\StudentRequest;
 use gkinder\Http\Controllers\Controller;
-use gkinder\Room;
-use gkinder\School;
-use gkinder\Student;
-use gkinder\Tutor;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use gkinder\Student;
+use gkinder\Tutor;
+use gkinder\Room;
 
 class StudentController extends Controller
 {
@@ -39,8 +38,9 @@ class StudentController extends Controller
         return view('school.student.create', compact('rooms', 'tutors', 'rooms'));
     }
 
-    public function store(Request $request)
+    public function store(StudentRequest $request)
     {
+
         $student = new Student;
         $student->name = $request['nombre'];
         $student->last_name = $request['apellido'];
@@ -86,16 +86,17 @@ class StudentController extends Controller
         return view('school.student.show', compact('students'));
     }
 
-    public function update(Request $request, $id)
+    public function update(StudentRequest $request, $id)
     {
         $student = Student::find($id);
-        $student->name = $request['name'];
-        $student->last_name = $request['last_name'];
+
+        $student->name = $request['nombre'];
+        $student->last_name = $request['apellido'];
         $student->dni = $request['dni'];
+        $student->sex = $request['sexo'];
         $student->birth_date = $request['fecha'];
         $student->room_id = $request['room_id'];
         $student->tutor_id = $request['tutor_id'];
-        $student->sex = $request['sex'];
         $student->observation = $request['observation'];
 
         if ($request->file) {

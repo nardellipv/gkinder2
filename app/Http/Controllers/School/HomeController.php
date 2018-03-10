@@ -5,11 +5,10 @@ namespace gkinder\Http\Controllers\School;
 use DB;
 use gkinder\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Jenssegers\Date\Date;
 use gkinder\Calendar;
 use gkinder\Student;
 use gkinder\Teacher;
-use gkinder\Room;
-use Jenssegers\Date\Date;
 
 class HomeController extends Controller
 {
