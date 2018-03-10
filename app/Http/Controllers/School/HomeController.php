@@ -10,6 +10,7 @@ use gkinder\Student;
 use gkinder\Teacher;
 use gkinder\User;
 use Illuminate\Support\Facades\Auth;
+use Jenssegers\Date\Date;
 
 class HomeController extends Controller
 {
@@ -31,7 +32,7 @@ class HomeController extends Controller
 
         $nextEvents = Calendar::where('calendars.school_id', '=', Auth::User()->school_id)
 //            ->join('rooms', 'rooms.id', '=', 'calendars.room_id')
-            ->where('date_start', '>=', now())
+            ->where('date_start', '>=', Date::now()->sub('1 day'))
             ->get();
 
         //counts

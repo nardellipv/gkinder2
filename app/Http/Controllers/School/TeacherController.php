@@ -2,12 +2,13 @@
 
 namespace gkinder\Http\Controllers\School;
 
+use gkinder\Http\Requests\School\TeacherStoreRequest;
+use gkinder\Http\Requests\School\TeacherUpdateRequest;
 use gkinder\Http\Controllers\Controller;
-use gkinder\Room;
-use gkinder\Teacher;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use gkinder\Room;
+use gkinder\Teacher;
 
 class TeacherController extends Controller
 {
@@ -27,9 +28,9 @@ class TeacherController extends Controller
         return view('school.teacher.create', compact('rooms'));
     }
 
-    public function store(Request $request)
+    public function store(TeacherStoreRequest $request)
     {
-        
+
         $teacher = new Teacher;
         $teacher->name = $request['nombre'];
         $teacher->last_name = $request['apellido'];
@@ -66,13 +67,14 @@ class TeacherController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(TeacherUpdateRequest $request, $id)
     {
         $teacher = Teacher::find($id);
-        $teacher->name = $request['name'];
-        $teacher->last_name = $request['last_name'];
-        $teacher->phone = $request['phone'];
-        $teacher->address = $request['address'];
+
+        $teacher->name = $request['nombre'];
+        $teacher->last_name = $request['apellido'];
+        $teacher->phone = $request['telefono'];
+        $teacher->address = $request['direccion'];
         $teacher->email = $request['email'];
         $teacher->room_id = $request['room_id'];
         $teacher->observation = $request['observation'];

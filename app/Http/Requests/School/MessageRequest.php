@@ -1,10 +1,10 @@
 <?php
 
-namespace gkinder\Http\Requests;
+namespace gkinder\Http\Requests\School;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StudentRequest extends FormRequest
+class MessageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class StudentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'to' => 'required',
+            'subject' => 'required|min:5',
+            'body' => 'required',
         ];
     }
 }

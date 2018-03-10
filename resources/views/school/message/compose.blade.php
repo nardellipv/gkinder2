@@ -4,9 +4,10 @@
     <link rel="stylesheet" href={{ asset( 'vendor/select2/select2.min.css') }}>
 @endsection
 @section('content')
-    @if (Session::has('message'))
-        <p class="alert alert-success">{!! Session::get('message') !!}</p>
-    @endif
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
     <div class="box box-solid box-success">
         <div class="box-header with-border">
             <h3 class="box-title">Enviar Mensaje</h3>
@@ -25,11 +26,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <input class="form-control" name="title" placeholder="Subject:">
+                <input class="form-control" name="subject" placeholder="Subject:" value="{{old('subject')}}">
             </div>
             <div class="form-group">
                     <textarea id="compose-textarea" name="body" class="form-control" style="height: 200px">
-
+                        {{old('body')}}
                     </textarea>
             </div>
         </div>

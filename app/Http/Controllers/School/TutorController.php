@@ -2,12 +2,12 @@
 
 namespace gkinder\Http\Controllers\School;
 
+use gkinder\Http\Requests\School\TutorStoreRequest;
+use gkinder\Http\Requests\School\TutorUpdateRequest;
 use gkinder\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use gkinder\Student;
 use gkinder\Tutor;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class TutorController extends Controller
 {
@@ -24,7 +24,7 @@ class TutorController extends Controller
         return view('school.tutor.create');
     }
 
-    public function store(Request $request)
+    public function store(TutorStoreRequest $request)
     {
         $tutor = new Tutor;
         $tutor->name = $request['nombre'];
@@ -58,14 +58,16 @@ class TutorController extends Controller
         //
     }
 
-    public function update(Request $request, $id)
+    public function update(TutorUpdateRequest $request, $id)
     {
         $tutor = Tutor::find($id);
-        $tutor->name = $request['name'];
-        $tutor->last_name = $request['last_name'];
-        $tutor->phone = $request['phone'];
-        $tutor->address = $request['address'];
+
+        $tutor->name = $request['nombre'];
+        $tutor->last_name = $request['apellido'];
+        $tutor->phone = $request['telefono'];
+        $tutor->dni = $request['dni'];
         $tutor->email = $request['email'];
+        $tutor->address = $request['direccion'];
         $tutor->observation = $request['observation'];
 
         if ($request->student_id) {

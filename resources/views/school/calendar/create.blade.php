@@ -4,9 +4,10 @@
     <link rel="stylesheet" href={{ asset( 'vendor/daterangepicker/daterangepicker.css') }}>
 @endsection
 @section('content')
-    @if (Session::has('message'))
-        <p class="alert alert-success">{!! Session::get('message') !!}</p>
-    @endif
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
     <div class="box box-solid box-success">
         <div class="box-header with-border">
             <h3 class="box-title">Agregar Evento al calendario</h3>
@@ -16,12 +17,12 @@
         <div class="box-body">
             <div class="form-group">
                 <label for="activity">Actividad</label>
-                <input type="text" class="form-control" id="activity" name="activity" placeholder="Actividad" required>
+                <input type="text" class="form-control" id="activity" name="activity" placeholder="Actividad" value="{{old('activity')}}" required>
             </div>
             <div class="form-group">
                 <label>Descripción</label>
                 <textarea class="form-control" name="description" rows="3" placeholder="Descripción"
-                          required></textarea>
+                          required>{{old('description')}}</textarea>
             </div>
             <div class="form-group">
                 <label>Sala</label>

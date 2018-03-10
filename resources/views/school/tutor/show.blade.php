@@ -1,8 +1,9 @@
 @extends('school.layouts.main')
 @section('content')
-    @if (Session::has('message'))
-    <p class="alert alert-success">{!! Session::get('message') !!}</p>
-@endif
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
 <div class="box box-solid box-success">
     <div class="box-header with-border">
         <h3 class="box-title">Datos Tutor</h3>
@@ -75,28 +76,35 @@
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Nombre</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name"
+                                        <input type="text" class="form-control" id="name" name="nombre"
                                                value="{{$tutor->name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="lastname" class="col-sm-2 control-label">Apellido</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="lastname" name="last_name"
+                                        <input type="text" class="form-control" id="lastname" name="apellido"
                                                value="{{$tutor->last_name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="col-sm-2 control-label">Teléfono</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="phone" class="form-control" id="phone"
+                                        <input type="text" name="telefono" class="form-control" id="phone"
                                                value="{{$tutor->phone}}" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="col-sm-2 control-label">DNI</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="dni" class="form-control" id="phone"
+                                               value="{{$tutor->dni}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="col-sm-2 control-label">Dirección</label>
                                     <div class="col-sm-10">
-                                        <textarea name="address" class="form-control"
+                                        <textarea name="direccion" class="form-control"
                                                   rows="3">{{$tutor->address}}</textarea>
                                     </div>
                                 </div>

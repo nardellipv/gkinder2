@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tutor extends Model
 {
     protected $fillable = [
-        'name', 'last_name', 'phone', 'dni', 'address', 'email',
+        'name', 'last_name', 'phone', 'dni', 'address', 'email', 'observation', 'school_id'
     ];
 
     public function Messages()

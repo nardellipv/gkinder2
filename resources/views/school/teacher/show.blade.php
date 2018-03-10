@@ -1,7 +1,9 @@
-@extends('school.layouts.main') 
-@section('content') @if (Session::has('message'))
-<p class="alert alert-success">{!! Session::get('message') !!}</p>
-@endif
+@extends('school.layouts.main')
+@section('content')
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
 <div class="box box-solid box-success">
     <div class="box-header with-border">
         <h3 class="box-title">Datos Profesor</h3>
@@ -13,10 +15,13 @@
                     <div class="box box-primary">
                         <div class="box-body box-profile">
                             @if($teacher->photo)
-                            <a href="{{asset ($teacher->photo)}}" target="_blank">
-                        <img class="img-responsive img-rectangle" src="{{asset ($teacher->photo)}}" alt="fotoUsuario">
-                            </a> @else
-                            <img class="img-responsive" src="{{asset ('dist/img/docente.png')}}" alt="fotoUsuario"> @endif
+                                <a href="{{asset ($teacher->photo)}}" target="_blank">
+                                    <img class="img-responsive img-rectangle" src="{{asset ($teacher->photo)}}"
+                                         alt="fotoUsuario">
+                                </a>
+                            @else
+                                <img class="img-responsive" src="{{asset ('dist/img/docente.png')}}" alt="fotoUsuario">
+                            @endif
                             <h3 class="profile-username text-center">{{$teacher->name}}</h3>
                             <ul class="list-group list-group-unbordered">
                                 <li class="list-group-item">
@@ -52,11 +57,11 @@
                         <div class="tab-content">
                             <div class="active tab-pane" id="observation">
                                 @if($teacher->observation)
-                                <p>
-                                    {!! $teacher->observation !!}
-                                </p>
+                                    <p>
+                                        {!! $teacher->observation !!}
+                                    </p>
                                 @else
-                                <p class="text-light-blue">Este profesor no posee observaciones</p>
+                                    <p class="text-light-blue">Este profesor no posee observaciones</p>
                                 @endif
                             </div>
                             <div class="tab-pane" id="edit">
@@ -65,46 +70,51 @@
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">Nombre</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name" value="{{$teacher->name}}" required>
+                                        <input type="text" class="form-control" id="name" name="nombre"
+                                               value="{{$teacher->name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="lastname" class="col-sm-2 control-label">Apellido</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="lastname" name="last_name" value="{{$teacher->last_name}}" required>
+                                        <input type="text" class="form-control" id="lastname" name="apellido"
+                                               value="{{$teacher->last_name}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="col-sm-2 control-label">Teléfono</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="phone" class="form-control" id="phone" value="{{$teacher->phone}}" required>
+                                        <input type="text" name="telefono" class="form-control" id="telefono"
+                                               value="{{$teacher->phone}}" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="col-sm-2 control-label">Dirección</label>
                                     <div class="col-sm-10">
-                                        <textarea name="address" class="form-control" rows="3">{{$teacher->address}}</textarea>
+                                        <textarea name="direccion" class="form-control"
+                                                  rows="3">{{$teacher->address}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">EMail</label>
                                     <div class="col-sm-10">
-                                        <input type="email" name="email" class="form-control" value="{{$teacher->email}}">
+                                        <input type="email" name="email" class="form-control"
+                                               value="{{$teacher->email}}">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="room_id" class="col-sm-2 control-label">Salas</label>
                                     <div class="col-sm-10">
                                         <select name="room_id" class="form-control" required>
-                                                    <optgroup label="Sala actual">
-                                                        <option value="{{$teacher->room->id}}">{{$teacher->room->name}}</option> 
-                                                    </optgroup>                                               
-                                                    <optgroup label="Salas disponibles">
-                                                    @foreach ($rooms as $room)
-                                                        <option value="{{$room->id}}">{{$room->name}}</option>
-                                                    @endforeach
-                                                    </optgroup>                       
-                                                </select>
+                                            <optgroup label="Sala actual">
+                                                <option value="{{$teacher->room->id}}">{{$teacher->room->name}}</option>
+                                            </optgroup>
+                                            <optgroup label="Salas disponibles">
+                                                @foreach ($rooms as $room)
+                                                    <option value="{{$room->id}}">{{$room->name}}</option>
+                                                @endforeach
+                                            </optgroup>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -117,7 +127,8 @@
                                     <div class="form-group">
                                         <label for="dni" class="col-sm-2 control-label">Observaciones</label>
                                         <div class="form-group">
-                                            <textarea name="observation" class="form-control" rows="10">{{$teacher->observation}}</textarea>
+                                            <textarea name="observation" class="form-control"
+                                                      rows="10">{{$teacher->observation}}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -133,6 +144,6 @@
                     </div>
                 </div>
         </section>
-        </div>
     </div>
+</div>
 @endsection

@@ -3,9 +3,10 @@
     <link rel="stylesheet" href={{ asset( 'vendor/iCheck/all.css') }}>
 @endsection
 @section('content')
-    @if (Session::has('message'))
-        <p class="alert alert-success">{!! Session::get('message') !!}</p>
-    @endif
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
     <div class="box box-solid box-success">
         <div class="box-header with-border">
             <h3 class="box-title">Agregar nuevo alumno
@@ -19,14 +20,15 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-2">
                     <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="Nombre" name="nombre" required>
+                        <input class="form-control input-lg" type="text" placeholder="Nombre" name="nombre"
+                               value="{{old('nombre')}}" required>
                     </div>
                     <div class="form-group">
                         <input class="form-control input-lg" type="text" placeholder="Apellido" name="apellido"
-                               required>
+                               value="{{old('apellido')}}" required>
                     </div>
                     <div class="form-group">
-                        <input class="form-control input-lg" type="text" placeholder="DNI" name="dni" required>
+                        <input class="form-control input-lg" type="text" placeholder="DNI" name="dni" value="{{old('dni')}}" required>
                     </div>
                     <div class="form-group">
                         <label>Sexo</label>
@@ -43,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label>Fecha de nacimiento</label>
-                        <input type="date" name="fecha" class="form-control input-lg" value="" required>
+                        <input type="date" name="fecha" class="form-control input-lg" value="{{old('fecha')}}" required>
                     </div>
                 </div>
                 <div class="col-xs-4">
@@ -68,7 +70,7 @@
                     </div>
                     <div class="form-group">
                         <textarea name="observation" class="form-control input-lg" rows="5"
-                                  placeholder="Observaciones"></textarea>
+                                  placeholder="Observaciones">{{old('observation')}}</textarea>
                     </div>
                     <div class="form-group">
                         <input type="file" name="file" id="exampleInputFile" class="form-control input-lg">

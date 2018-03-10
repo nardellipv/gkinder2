@@ -4,9 +4,10 @@
     <link rel="stylesheet" href={{ asset( 'vendor/daterangepicker/daterangepicker.css') }}>
 @endsection
 @section('content')
-    @if (Session::has('message'))
-        <p class="alert alert-success">{!! Session::get('message') !!}</p>
-    @endif
+
+    @include('layouts.message_errors')
+    @include('layouts.message_success')
+
     <div class="box box-solid box-success">
         <div class="box-header with-border">
             <h3 class="box-title">Editar Evento en el calendario</h3>
