@@ -24,7 +24,10 @@ class ProfileUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' =>'required|min:5'
+            'nombre' =>'required|min:5',
+            'cp' =>'required|min:4|numeric',
+            'direccion' =>'required|min:5',
+            'ciudad' =>'required|min:5',
         ];
     }
 }

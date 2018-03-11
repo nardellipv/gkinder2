@@ -29,7 +29,7 @@
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control input-lg" type="number" placeholder="Código Postal"
+                                    <input class="form-control input-lg" type="text" placeholder="Código Postal"
                                            value="{{$school->cp}}"
                                            name="cp"
                                            required>

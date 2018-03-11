@@ -5,9 +5,11 @@ namespace gkinder\Http\Controllers\School;
 use DB;
 use gkinder\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use gkinder\Http\Middleware\ActiveStatus;
 use Jenssegers\Date\Date;
 use gkinder\Calendar;
 use gkinder\Student;
+use gkinder\Room;
 use gkinder\Teacher;
 
 class HomeController extends Controller
@@ -15,7 +17,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     public function view()
