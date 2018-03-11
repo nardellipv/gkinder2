@@ -19,7 +19,6 @@ class Kernel extends HttpKernel
         \gkinder\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \gkinder\Http\Middleware\TrustProxies::class,
-//        \gkinder\Http\Middleware\ActiveStatus::class,
     ];
 
     /**
@@ -60,5 +59,6 @@ class Kernel extends HttpKernel
         'guest' => \gkinder\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'ActiveStatus' => \gkinder\Http\Middleware\ActiveStatus::class,
+        'UserType' => \gkinder\Http\Middleware\UserType::class,
     ];
 }
