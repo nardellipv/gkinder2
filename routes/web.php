@@ -43,7 +43,7 @@ Route::middleware(['auth','ActiveStatus','UserType'])->group(function () {
 
 
 //tutor
-Route::middleware(['ActiveStatus'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::get('tutor/home', 'Tutor\HomeController@view')->name('home');
 

@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control input-lg" type="email" placeholder="Email" name="email"
-                                           value="{{$user->email}}" required>
+                                           value="{{$user->email}}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control input-lg" type="password"

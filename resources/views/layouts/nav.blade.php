@@ -35,9 +35,12 @@
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="{{URL('school/perfil', auth()->user()->school_id)}}" class="btn btn-default btn-flat">Perfil</a>
-                            </div>
+                            @if(auth()->user()->user_type == 'ADMIN')
+                                <div class="pull-left">
+                                    <a href="{{URL('school/perfil', auth()->user()->school_id)}}"
+                                       class="btn btn-default btn-flat">Perfil</a>
+                                </div>
+                            @endif
                             <div class="pull-right">
                                 <a class="btn btn-default btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
