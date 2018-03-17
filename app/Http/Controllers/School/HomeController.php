@@ -5,8 +5,8 @@ namespace gkinder\Http\Controllers\School;
 use DB;
 use gkinder\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use gkinder\Http\Middleware\ActiveStatus;
 use Jenssegers\Date\Date;
+use gkinder\Message;
 use gkinder\Calendar;
 use gkinder\Student;
 use gkinder\Room;
@@ -14,11 +14,6 @@ use gkinder\Teacher;
 
 class HomeController extends Controller
 {
-
-    public function __construct()
-    {
-
-    }
 
     public function view()
     {
@@ -41,7 +36,8 @@ class HomeController extends Controller
         $countTeachers = Teacher::where('school_id', '=', Auth::User()->school_id)
             ->count();
 
-        $countRooms = Room::where('school_id', '=', Auth::User()->school_id)
+        $countMessages = Message::where('school_id', '=', Auth::User()->school_id)
+            ->where('read', 'NOREAD')
             ->count();
 
         $countEvents = Calendar::where('school_id', '=', Auth::User()->school_id)
@@ -53,7 +49,7 @@ class HomeController extends Controller
             'nextEvents' => $nextEvents,
             'countStudents' => $countStudents,
             'countTeachers' => $countTeachers,
-            'countRooms' => $countRooms,
+            'countMessages' => $countMessages,
             'countEvents' => $countEvents,
         ]);
     }

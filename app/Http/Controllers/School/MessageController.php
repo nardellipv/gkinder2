@@ -21,27 +21,17 @@ class MessageController extends Controller
         return view('school.message.index', compact('messages'));
     }
 
-    public function create()
-    {
-        dd('dasdas');
-    }
-
-    public function store(Request $request)
-    {
-        dd('dasdas');
-    }
 
     public function show($id)
     {
         $message = Message::find($id);
 
+        $message->read = 'READ';
+        $message->update();
+
         return view('school.message.show', compact('message'));
     }
 
-    public function edit($id)
-    {
-        dd('dasdas');
-    }
 
     public function update(MessageRequest $request, $id)
     {

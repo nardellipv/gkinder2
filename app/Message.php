@@ -9,7 +9,7 @@ class Message extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'title', 'body', 'date', 'school_id', 'tutor_id'
+        'title', 'body', 'date', 'read', 'school_id', 'tutor_id'
     ];
 
     public function tutor()

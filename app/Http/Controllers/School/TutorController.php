@@ -2,11 +2,11 @@
 
 namespace gkinder\Http\Controllers\School;
 
-use gkinder\Http\Controllers\Controller;
+use gkinder\Http\Requests\School\TutorUpdateRequest;
 use gkinder\Http\Requests\School\TutorStoreRequest;
-use gkinder\User;
+use gkinder\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
+use gkinder\User;
 use gkinder\Student;
 use gkinder\Tutor;
 
@@ -48,6 +48,8 @@ class TutorController extends Controller
         $tutorUser->name = $request['nombre'];
         $tutorUser->email = $request['email'];
         $tutorUser->password = bcrypt($request['password']);
+        $tutorUser->school_id = auth()->user()->school_id;
+        $tutorUser->user_type = 'TUTOR';
 
         $tutorUser->save();
 
@@ -67,13 +69,13 @@ class TutorController extends Controller
         return view('school.tutor.show', compact('tutor', 'students', 'otherStudent'));
     }
 
-    public function update(TeacherUpdateRequest $request, $id)
+    public function update(TutorUpdateRequest $request, $id)
     {
         $tutor = Tutor::find($id);
-        $tutor->name = $request['name'];
-        $tutor->last_name = $request['last_name'];
-        $tutor->phone = $request['phone'];
-        $tutor->address = $request['address'];
+        $tutor->name = $request['nombre'];
+        $tutor->last_name = $request['apellido'];
+        $tutor->phone = $request['telefono'];
+        $tutor->address = $request['direccion'];
         $tutor->email = $request['email'];
         $tutor->observation = $request['observation'];
 

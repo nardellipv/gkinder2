@@ -19,6 +19,7 @@ class CreateComunicationsTable extends Migration
             $table->string('title');
             $table->mediumText('body');
             $table->dateTime('date');
+            $table->enum('read',['READ','NOREAD']);
             $table->integer('school_id')->unsigned();
             $table->integer('tutor_id')->unsigned()->nullable();
             $table->integer('room_id')->unsigned()->nullable();

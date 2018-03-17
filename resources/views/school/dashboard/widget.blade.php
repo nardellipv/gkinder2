@@ -19,14 +19,14 @@
     <!-- small box -->
     <div class="small-box bg-green">
       <div class="inner">
-        <h3>{{$countRooms}}</h3>
-        <p>Cantidad Salas</p>
+        <h3>{{$countMessages}}</h3>
+        <p>Mensajes sin Leer</p>
       </div>
       <div class="icon">
-        <i class="fa fa-home"></i>
+        <i class="fa fa-envelope-o"></i>
       </div>
-      <a href="#" class="small-box-footer">
-          Ir al listado de salas <i class="fa fa-arrow-circle-down"></i>
+      <a href="{{url('school/mensajes')}}" class="small-box-footer">
+          Ir a la bandeja de entrada <i class="fa fa-arrow-circle-right"></i>
         </a>
     </div>
   </div>

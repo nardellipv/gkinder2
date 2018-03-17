@@ -155,6 +155,7 @@ return [
         Jenssegers\Date\DateServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        gkinder\Providers\ComposerServicePorvider::class,
         /*
          * Application Service Providers...
          */

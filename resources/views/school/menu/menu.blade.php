@@ -14,13 +14,14 @@
         <ul class="sidebar-menu">
             <li class="header">Menú</li>
             <!-- Optionally, you can add icons to the links -->
-            <li><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Panel Principal</span></a></li>
+            <li><a href="{{ url('school/home') }}"><i class="fa fa-dashboard"></i> <span>Panel Principal</span></a></li>
             <li><a href="{{url('school/estudiantes')}}"><i class="fa fa-users"></i> <span>Listado Alumnos</span></a>
             </li>
             <li><a href="{{url('school/profesores')}}"><i class="fa fa-user"></i> <span>Listado Profesores</span></a>
             </li>
             <li><a href="{{url('school/tutores')}}"><i class="fa fa-user"></i> <span>Listado Tutores</span></a></li>
-            <li><a href="{{url('school/mensajes')}}"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span></a></li>
+            <li><a href="{{url('school/mensajes')}}"><i class="fa fa-envelope"></i> <span>Bandeja de entrada
+                    <small class="label pull-right bg-green">{{ $message }}</small></span></a></li>
             <li><a href="{{url('school/calendario')}}"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-user-plus"></i> <span>Agregar</span>

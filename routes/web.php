@@ -41,7 +41,10 @@ Route::middleware(['auth','ActiveStatus','UserType'])->group(function () {
 });
 
 
+
 //tutor
-Route::get('/tutor/home', function (){
-   return view('/tutor/home');
+Route::middleware(['ActiveStatus'])->group(function () {
+
+    Route::get('tutor/home', 'Tutor\HomeController@view')->name('home');
+
 });

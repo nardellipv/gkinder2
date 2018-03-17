@@ -20,7 +20,8 @@ class UserType
         $userType = User::where('id', Auth::user()->id)
             ->first();
 
-        if($userType->user_type == 'TUTOR'){
+        if($userType->user_type === 'TUTOR'){
+
             return redirect('/tutor/home');
         }else{
 

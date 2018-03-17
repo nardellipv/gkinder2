@@ -26,7 +26,7 @@
                     <input class="form-control input-lg" type="text" placeholder="DNI" name="dni" value="{{old('dni')}}" required>
                 </div>
                 <div class="form-group">
-                    <input class="form-control input-lg" type="email" placeholder="EMail" name="email" value="{{old('dni')}}" required>
+                    <input class="form-control input-lg" type="email" placeholder="EMail" name="email" value="{{old('email')}}" required>
                 </div>
             </div>
             <div class="col-xs-4">

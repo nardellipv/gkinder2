@@ -29,7 +29,7 @@ class TutorStoreRequest extends FormRequest
             'telefono'=> 'required|numeric',
             'dni'=> 'required|numeric',
             'direccion'=> 'required|min:4',
-            'email'=> 'required|email|unique:teachers,email',
+            'email'=> 'required|email|unique:tutors,email',
             'password'=>'required|min:6'
 
         ];
