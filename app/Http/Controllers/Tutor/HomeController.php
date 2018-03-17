@@ -2,13 +2,13 @@
 
 namespace gkinder\Http\Controllers\Tutor;
 
-use gkinder\School;
-use gkinder\Student;
-use Illuminate\Http\Request;
 use gkinder\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Jenssegers\Date\Date;
+use gkinder\Tutor;
 use gkinder\Calendar;
+use gkinder\Student;
+use gkinder\School;
 
 
 class HomeController extends Controller
@@ -19,7 +19,10 @@ class HomeController extends Controller
             ->where('date_start', '>=', Date::now()->sub('1 day'))
             ->get();
 
-        $students = Student::where('tutor_id', Auth::user()->id)
+        $tutorId = Tutor::where('email', Auth::user()->email)
+            ->first();
+
+        $students = Student::where('tutor_id', $tutorId->id)
             ->get();
 
         $school = School::where('id', Auth::user()->school_id)

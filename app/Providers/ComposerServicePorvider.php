@@ -2,8 +2,8 @@
 
 namespace gkinder\Providers;
 
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 
 class ComposerServicePorvider extends ServiceProvider
@@ -16,6 +16,8 @@ class ComposerServicePorvider extends ServiceProvider
     public function boot()
     {
         View::composer(['school.menu.menu'], 'gkinder\Http\CounterView\CounterMails');
+
+        View::composer(['tutor.menu.menu'], 'gkinder\Http\CounterView\CounterMailsTutor');
     }
 
     /**

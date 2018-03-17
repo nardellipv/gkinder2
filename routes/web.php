@@ -47,4 +47,7 @@ Route::middleware(['ActiveStatus'])->group(function () {
 
     Route::get('tutor/home', 'Tutor\HomeController@view')->name('home');
 
+    Route::resource('tutor/mensajes', 'Tutor\MessageController');
+    Route::get('tutor/mensajes/responder/{id}', 'Tutor\MessageController@respond')->name('responder');
+
 });

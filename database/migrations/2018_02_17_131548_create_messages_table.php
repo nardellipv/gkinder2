@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
 
             $table->string('title');
             $table->mediumText('body');
-            $table->date('date');
+            $table->dateTime('date');
             $table->enum('read',['READ','NOREAD']);
             $table->integer('school_id')->unsigned();
             $table->integer('tutor_id')->unsigned()->nullable();

@@ -41,6 +41,7 @@ class ComunicationController extends Controller
             $comunication->title = $request['subject'];
             $comunication->body = $request['body'];
             $comunication->tutor_id = $tutor;
+            $comunication->read = 'NOREAD';
             $comunication->save();
         }
 
@@ -58,10 +59,18 @@ class ComunicationController extends Controller
 
     public function destroy($id)
     {
-        $comunication = Comunication::find($id);
-        $comunication->delete();
 
-        Session::flash('message', 'El mensaje <b>' . $comunication->title . '</b> fue eliminado correctamente');
+        $comunication = Comunication::find($id);
+
+        if ($comunication != null) {
+
+            $comunication->delete();
+
+            Session::flash('message', 'El mensaje <b>' . $comunication->title . '</b> fue eliminado correctamente');
+            return redirect('school/correo/enviados');
+        }
+
+        Session::flash('message', 'El mensaje NO puede ser eliminado');
         return redirect('school/correo/enviados');
     }
 }

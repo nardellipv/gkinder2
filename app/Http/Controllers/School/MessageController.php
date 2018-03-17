@@ -6,7 +6,6 @@ use gkinder\Http\Requests\School\MessageRequest;
 use gkinder\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use gkinder\Comunication;
-use Illuminate\Http\Request;
 use gkinder\Message;
 
 class MessageController extends Controller
@@ -47,6 +46,7 @@ class MessageController extends Controller
         $comunication->body = $request['body'];
         $comunication->date = now();
         $comunication->school_id = auth()->user()->school_id;
+        $comunication->read = 'NOREAD';
         $comunication->tutor_id = $message->tutor_id;
         $comunication->save();
 
@@ -65,10 +65,18 @@ class MessageController extends Controller
 
     public function destroy($id)
     {
-        $message = Message::find($id);
-        $message->delete();
 
-        Session::flash('message', 'El mensaje <b>' . $message->title . '</b> fue eliminado correctamente');
-        return redirect('school/mensajes');
+        $message = Message::find($id);
+
+        if ($message != null) {
+
+            $message->delete();
+
+            Session::flash('message', 'El mensaje <b>' . $message->title . '</b> fue eliminado correctamente');
+            return redirect('school/mensajes');
+        }
+
+        Session::flash('message', 'El mensaje NO puede ser eliminado');
+        return redirect('school/correo/enviados');
     }
 }

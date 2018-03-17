@@ -1,5 +1,5 @@
 <div class="modal fade" id="deleteMessageModal-{{ $message->id }}" tabindex="-1" role="dialog">
-    {!! Form::open(['method' => 'DELETE','url' => ['school/mensajes', $message->id],'style'=>'display:inline']) !!} {{
+    {!! Form::open(['method' => 'DELETE','route' => ['mensajes.destroy', $message->id],'style'=>'display:inline']) !!} {{
     Form::token() }}
     <div class="modal-dialog" role="document">
         <div class="modal-content modal-danger">
