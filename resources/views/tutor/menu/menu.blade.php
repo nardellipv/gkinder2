@@ -16,7 +16,7 @@
             <li><a href="{{url('tutor/mensajes')}}"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span>
                     <small class="label pull-right bg-green">{{ $messageTutor }}</small>
                 </a></li>
-            <li><a href="{{url('school/calendario')}}"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>
+            <li><a href="{{url('tutor/eventos')}}"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>
         </ul>
     </section>
 </aside>

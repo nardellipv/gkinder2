@@ -50,4 +50,6 @@ Route::middleware(['ActiveStatus'])->group(function () {
     Route::resource('tutor/mensajes', 'Tutor\MessageController');
     Route::get('tutor/mensajes/responder/{id}', 'Tutor\MessageController@respond')->name('responder');
 
+    Route::resource('tutor/eventos', 'Tutor\CalendarController');
+
 });
