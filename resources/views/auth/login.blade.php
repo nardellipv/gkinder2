@@ -43,7 +43,7 @@
                 <div class="tab-left">
                     <ul class="resp-tabs-list">
                         <li class="resp-tab-item">Ingresar</li>
-                        <li class="resp-tab-item">Registrarse</li>
+                        <li class="resp-tab-item">Registrar Guardería</li>
                         <li class="resp-tab-item">Novedades</li>
                         <li class="resp-tab-item">Recuperar contraseña</li>
                         <li class="resp-tab-item">Contacto</li>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="tab-1 resp-tab-content">
                             <div class="register agileits">
-                                <h3>Registrarse</h3>
+                                <h3>Registrar Guardería</h3>
                                 <form method="POST" action="{{ route('register') }}">
                                     {{ csrf_field() }}
                                     <div class="col-md-6">
