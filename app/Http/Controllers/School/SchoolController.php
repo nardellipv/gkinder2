@@ -14,6 +14,7 @@ class SchoolController extends Controller
 
     public function updateSchool(ProfileSchoolRequest $request, $id)
     {
+
         $school = School::find($id);
         $school->name = $request['nombre'];
         $school->address = $request['direccion'];
@@ -32,9 +33,10 @@ class SchoolController extends Controller
     public function updateUser(ProfileUserRequest $request, $id)
     {
         $user = User::find($id);
+
         $user->name = $request['nombre'];
         $user->email = $request['email'];
-        if($request['password']) {
+        if ($request['password']) {
             $user->password = bcrypt($request['password']);
         }
 
@@ -46,7 +48,11 @@ class SchoolController extends Controller
 
     public function show($id)
     {
+
         $school = School::find($id);
+
+        $this->authorize('pass', $school);
+
         $user = User::find(auth()->user()->id);
 
         return view('school.profile.edit', compact('school', 'user'));

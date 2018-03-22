@@ -2,8 +2,10 @@
 
 namespace gkinder\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use gkinder\Policies\SchoolPolicy;
+use gkinder\School;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'gkinder\Model' => 'gkinder\Policies\ModelPolicy',
+        School::class => SchoolPolicy::class,
     ];
 
     /**

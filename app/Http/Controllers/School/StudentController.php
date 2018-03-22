@@ -6,18 +6,12 @@ use gkinder\Http\Requests\School\StudentRequest;
 use gkinder\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 use gkinder\Student;
 use gkinder\Tutor;
 use gkinder\Room;
 
 class StudentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-
-    }
 
     public function index()
     {
