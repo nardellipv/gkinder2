@@ -16,7 +16,7 @@ Route::post('sendemail', 'School\SendMailController@ship')->name('sendemail');
 Auth::routes();
 
 //jardin
-Route::middleware(['auth','ActiveStatus','UserType'])->group(function () {
+Route::middleware(['auth','ActiveStatus','UserType','Account'])->group(function () {
 
     Route::get('school/home', 'School\HomeController@view')->name('home');
     Route::resource('school/salas', 'School\RoomController');

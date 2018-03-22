@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'ActiveStatus' => \gkinder\Http\Middleware\ActiveStatus::class,
         'UserType' => \gkinder\Http\Middleware\UserType::class,
+        'Account' => \gkinder\Http\Middleware\Account::class,
     ];
 }
