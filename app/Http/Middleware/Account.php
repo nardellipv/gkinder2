@@ -24,7 +24,8 @@ class Account
         $diff = $account->created_at->diff(now())->days;
 
         if ($account->account == 'TEST' && $diff >= 60) {
-            dd("tu cuenta se vencio");
+//            return redirect('/errors/account-expired');
+            return abort(409);
         }
 
         return $next($request);
