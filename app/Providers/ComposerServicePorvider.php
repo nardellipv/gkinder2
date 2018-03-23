@@ -18,6 +18,10 @@ class ComposerServicePorvider extends ServiceProvider
         View::composer(['school.menu.menu'], 'gkinder\Http\CounterView\CounterMails');
 
         View::composer(['tutor.menu.menu'], 'gkinder\Http\CounterView\CounterMailsTutor');
+
+        View::composer(['school.menu.menu'], 'gkinder\Http\CounterView\CounterCircular');
+
+        View::composer(['tutor.menu.menu'], 'gkinder\Http\CounterView\CounterCircular');
     }
 
     /**

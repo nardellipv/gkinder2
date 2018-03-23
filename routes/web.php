@@ -38,7 +38,9 @@ Route::middleware(['auth','ActiveStatus','UserType','Account'])->group(function 
 
     Route::resource('calendario', 'School\CalendarController');
 
-    Route::resource('circulares', 'School\CircularController');
+    Route::resource('school/circulares', 'School\CircularController');
+    Route::patch('school/circulares/disable/{id}', 'School\CircularController@disable')->name('disable.circular');
+    Route::patch('school/circulares/active/{id}', 'School\CircularController@active')->name('active.circular');
 
 });
 
@@ -54,4 +56,5 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('tutor/eventos', 'Tutor\CalendarController');
 
+    Route::resource('tutor/circulares', 'Tutor\CircularController');
 });

@@ -13,6 +13,9 @@
             <li class="header">Menú</li>
             <!-- Optionally, you can add icons to the links -->
             <li><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Panel Principal</span></a></li>
+            <li><a href="{{url('tutor/circulares')}}"><i class="fa fa-file-text"></i> <span>Ciruculares</span>
+                    <small class="label pull-right bg-green">{{ $circular }}</small>
+                </a></li>
             <li><a href="{{url('tutor/mensajes')}}"><i class="fa fa-envelope"></i> <span>Bandeja de entrada</span>
                     <small class="label pull-right bg-green">{{ $messageTutor }}</small>
                 </a></li>
