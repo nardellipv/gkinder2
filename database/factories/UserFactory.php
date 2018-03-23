@@ -17,7 +17,7 @@ $factory->define(gkinder\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'user_type' => $faker->randomElement($array = array('ADMIN', 'TEACHER')),
+        'user_type' => $faker->randomElement($array = array('ADMIN', 'TUTOR')),
         'password' => bcrypt('123'),
         'school_id' => rand(1,20),
         'remember_token' => str_random(10),

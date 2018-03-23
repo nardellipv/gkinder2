@@ -20,6 +20,7 @@
             <li><a href="{{url('school/profesores')}}"><i class="fa fa-user"></i> <span>Listado Profesores</span></a>
             </li>
             <li><a href="{{url('school/tutores')}}"><i class="fa fa-user"></i> <span>Listado Tutores</span></a></li>
+            <li><a href="{{url('school/tutores')}}"><i class="fa fa-file-text"></i> <span>Listado Circulares</span></a></li>
             <li><a href="{{url('school/mensajes')}}"><i class="fa fa-envelope"></i> <span>Bandeja de entrada
                     <small class="label pull-right bg-green">{{ $message }}</small></span></a></li>
             <li><a href="{{url('school/calendario')}}"><i class="fa fa-calendar"></i> <span>Calendario</span></a></li>

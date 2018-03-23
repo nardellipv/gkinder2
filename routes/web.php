@@ -38,6 +38,8 @@ Route::middleware(['auth','ActiveStatus','UserType','Account'])->group(function 
 
     Route::resource('calendario', 'School\CalendarController');
 
+    Route::resource('circulares', 'School\CircularController');
+
 });
 
 
