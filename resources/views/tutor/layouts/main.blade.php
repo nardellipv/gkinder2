@@ -19,6 +19,11 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-blue.css') }}">
+
+    {{--analytics--}}
+    @include('external.analytics')
+    {{--analytics--}}
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">

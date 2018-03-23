@@ -19,6 +19,19 @@
 <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/skins/skin-blue.min.css') }}">
+
+    {{--google analytics--}}
+    @include('external.analytics')
+    {{--google analytics--}}
+
+    {{--OneSignal--}}
+    @include('external.oneSignal')
+    {{--OneSignal--}}
+
+    {{--drift--}}
+    @include('external.drift')
+    {{--drift--}}
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

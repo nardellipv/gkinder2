@@ -72,7 +72,6 @@ class TutorController extends Controller
     public function update(TutorUpdateRequest $request, $id)
     {
         $tutor = Tutor::find($id);
-        $emailOld = $tutor->email;
 
         $tutor->name = $request['nombre'];
         $tutor->last_name = $request['apellido'];
