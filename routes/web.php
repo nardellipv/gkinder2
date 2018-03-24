@@ -1,12 +1,17 @@
 <?php
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return redirect()->route('login');
-});
+});*/
 
 //log
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 //------------
+
+//web
+Route::get('/', 'Web\FrontController@index')->name('index');
+Route::get('/login', 'Web\FrontController@login')->name('login');
+
 
 Route::post('newsletter', 'School\NewsLetterController@store')->name('newsLetter');
 
