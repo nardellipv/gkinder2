@@ -3,26 +3,14 @@
 namespace gkinder\Http\Controllers\School;
 
 use gkinder\Http\Controllers\Controller;
-use gkinder\Room;
-use gkinder\Teacher;
-use gkinder\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use gkinder\Teacher;
+use gkinder\Room;
 
 class RoomController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-
-    }
-
-    public function index()
-    {
-
-    }
 
     public function create()
     {
@@ -42,10 +30,10 @@ class RoomController extends Controller
         $room->save();
 
 
-        if(!empty($request->teacher_id)){
+        if (!empty($request->teacher_id)) {
 
             $teacher = Teacher::find($request['teacher_id']);
-            $room = Room::where('school_id', '=' ,auth()->user()->school_id)->get();
+            $room = Room::where('school_id', '=', auth()->user()->school_id)->get();
 
             $teacher->room_id = $room->last()->id;
             $teacher->update();
@@ -83,16 +71,20 @@ class RoomController extends Controller
 
         $room->update();
 
-        $teacherRoom = Teacher::where('room_id', $id)->first();
-        if ($teacherRoom > '1') {
-            $teacherRoom->room_id = NULL;
-            $teacherRoom->update();
+        if ($request->teacher_id != NULL) {
+
+            $teacherRoom = Teacher::where('room_id', $id)->first();
+
+            if ($teacherRoom > '1') {
+                $teacherRoom->room_id = NULL;
+                $teacherRoom->update();
+            }
+
+            $teacher = Teacher::find($request['teacher_id']);
+            $teacher->room_id = $id;
+
+            $teacher->update();
         }
-
-        $teacher = Teacher::find($request['teacher_id']);
-        $teacher->room_id = $id;
-
-        $teacher->update();
 
         return Redirect::to('school/home');
     }
