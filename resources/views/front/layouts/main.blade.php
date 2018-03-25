@@ -25,6 +25,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
           rel='stylesheet' type='text/css'>
 
+    {{--prices--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700">
+    <link href="{{ asset('front/css/prices.css') }}" rel="stylesheet">
+    {{--prices--}}
+
+    {{--google analytics--}}
+    @include('external.analytics')
+    {{--google analytics--}}
 </head>
 <body>
 <script src="{{ asset('front/js/jquery.vide.min.js') }}"></script>
@@ -51,6 +60,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {{--faq's--}}
 @include('front.layouts.parts.faq')
 {{--//faq's--}}
+<!-- prices-->
+@include('front.layouts.parts.prices')
+<!-- //prices-->
 <!-- contact -->
 @include('front.layouts.parts.contact')
 <!-- //contact -->

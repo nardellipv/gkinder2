@@ -1,5 +1,8 @@
 <div class="w3_agile_header">
     <div class="container">
+        <div class="w3_agile_header_left">
+            <img src="{{ asset('front/images/1.png') }}">
+        </div>
         <div class="w3_agile_header_right">
             <ul>
                 <li><a href="{{ url('/login') }}" class="play-icon popup-with-zoom-anim">Ingreso al panel</a></li>
@@ -19,9 +22,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <div class="w3_navigation_pos">
-                    <h1><a href="index.php"><span>GKinder</span><i>Gestión</i></a></h1>
-                </div>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
@@ -31,7 +31,7 @@
                         <li class="menu__item"><a href="#faq" class="scroll menu__link">Preguntas</a></li>
                         <li class="menu__item"><a href="#software" class="scroll menu__link">Software</a></li>
                         <li class="menu__item"><a href="#issues" class="scroll menu__link">Caracteristicas</a></li>
-                        {{--<li class="menu__item"><a href="#team" class="scroll menu__link">Team</a></li>--}}
+                        <li class="menu__item"><a href="#prices" class="scroll menu__link">Precios</a></li>
                         <li class="menu__item"><a href="#mail" class="scroll menu__link">Contacto</a></li>
                     </ul>
                 </nav>

@@ -18,6 +18,9 @@ Route::post('newsletter', 'School\NewsLetterController@store')->name('newsLetter
 //envio mail
 Route::post('sendemail', 'School\SendMailController@ship')->name('sendemail');
 
+Route::post('contactmail', 'ContactMailController@send')->name('contactmail');
+
+
 Auth::routes();
 
 //jardin

@@ -62,7 +62,7 @@ input[type="submit"],a,.agileinfo_social_icons li{
     font-weight: 600;
 }
 .w3_agile_header_right ul li a{
-	padding: 10px 30px;
+	padding: 15px 30px 18px 30px;
     background: #14a1ff;
     color: #fff;
     text-decoration: none;
@@ -109,13 +109,11 @@ input[type="submit"],a,.agileinfo_social_icons li{
     text-transform: uppercase;
     font-weight: 600;
 }
-.navbar-nav > li:nth-child(3){
-    margin-right:19.6em !important;
-}
+
 .w3_navigation_pos{
 	position: absolute;
     top:13%;
-    left: 42.5%;
+    left: 80%;
     z-index:999;
 }
 .w3_navigation_pos h1 a{
@@ -157,7 +155,7 @@ input[type="submit"],a,.agileinfo_social_icons li{
 }
 .menu__list {
 	position: relative;
-	margin: 0;
+	margin: 0em 0em 0em 0em;
 	padding: 0;
 	list-style: none;
 }
@@ -886,6 +884,27 @@ span.char25 {
 	color: #b3fa00;
 }
 /*-- //programs --*/
+
+/*-- prices --*/
+.prices{
+	background:#ffffff;
+	position:relative;
+	z-index: 1;
+    padding: 3em 0em 0em 0em;
+}
+.prices:before{
+	content:'';
+	background:url(../images/mather.jpg) no-repeat 100px 0px;
+	display:block;
+	width:450px;
+	height:320px;
+	position:absolute;
+	right:0%;
+	bottom:0%;
+	z-index: -1;
+}
+
+/*-- //prices --*/
 /*-- team --*/
 .wthree_team_grid_w3{
 	padding: 1em;
@@ -2705,7 +2724,7 @@ span.char25 {
 		margin:2em 0;
 	}
 	.w3_agile_header_right ul li a {
-		padding: 10px 30px;
+		padding: 11px 100px;
 	}
 	.agileits_w3layouts_user i {
 		width: 16%;

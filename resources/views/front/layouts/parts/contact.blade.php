@@ -38,24 +38,25 @@
             <div class="clearfix"></div>
         </div>
         <div class="agile_banner_bottom_grids">
-            <form action="#" method="post">
+            {!! Form::open(['method' => 'POST','route' => ['contactmail'],'style'=>'display:inline']) !!}
+            {{ csrf_field() }}
                 <div class="col-md-6 w3_agileits_contact_left">
 						<span class="input input--akira">
-							<input class="input__field input__field--akira" type="text" id="input-22" name="Name"
+							<input class="input__field input__field--akira" type="text" id="input-22" name="name"
                                    placeholder="" required=""/>
 							<label class="input__label input__label--akira" for="input-22">
 								<span class="input__label-content input__label-content--akira">Nombre</span>
 							</label>
 						</span>
                     <span class="input input--akira">
-							<input class="input__field input__field--akira" type="email" id="input-23" name="Email"
+							<input class="input__field input__field--akira" type="email" id="input-23" name="email"
                                    placeholder="" required=""/>
 							<label class="input__label input__label--akira" for="input-23">
 								<span class="input__label-content input__label-content--akira">Email</span>
 							</label>
 						</span>
                     <span class="input input--akira">
-							<input class="input__field input__field--akira" type="text" id="input-24" name="Subject"
+							<input class="input__field input__field--akira" type="text" id="input-24" name="subject"
                                    placeholder="" required=""/>
 							<label class="input__label input__label--akira" for="input-24">
 								<span class="input__label-content input__label-content--akira">Asunto</span>
@@ -64,15 +65,15 @@
                 </div>
                 <div class="col-md-6 w3_agileits_contact_right">
                     <div class="w3_agileits_contact_right1">
-                        <textarea name="Message" placeholder="Comentario" required=""></textarea>
+                        <textarea name="message" placeholder="Comentario" required=""></textarea>
                     </div>
                     <div class="w3_agileits_contact_right2">
-                        <input type="submit" value=" ">
+                        <input type="submit" value="">
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
-            </form>
+            {!! Form::close() !!}
         </div>
     </div>
 </div>
