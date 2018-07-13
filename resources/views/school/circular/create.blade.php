@@ -12,7 +12,7 @@
         <div class="box-header with-border">
             <h3 class="box-title">Crear circular</h3>
         </div>
-        {!! Form::open(['method' => 'POST','route' => ['circulares.store'],'style'=>'display:inline']) !!}
+        {!! Form::open(['method' => 'POST','url' => ['school/circulares'],'style'=>'display:inline']) !!}
         {{ csrf_field() }}
         <div class="box-body">
             <div class="form-group">

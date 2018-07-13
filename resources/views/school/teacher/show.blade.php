@@ -15,8 +15,8 @@
                     <div class="box box-primary">
                         <div class="box-body box-profile">
                             @if($teacher->photo)
-                                <a href="{{asset ($teacher->photo)}}" target="_blank">
-                                    <img class="img-responsive img-rectangle" src="{{asset ($teacher->photo)}}"
+                                <a href="{{asset ('storage/'.$teacher->photo)}}" target="_blank">
+                                    <img class="img-responsive img-rectangle" src="{{asset ('storage/'.$teacher->photo)}}"
                                          alt="fotoUsuario">
                                 </a>
                             @else

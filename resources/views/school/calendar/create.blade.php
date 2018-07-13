@@ -1,7 +1,7 @@
 @extends('school.layouts.main')
 @section('style')
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href={{ asset( 'vendor/daterangepicker/daterangepicker.css') }}>
+    <link rel="stylesheet" href={{ asset( 'vendor/datepicker/daterangepicker.css') }}>
 @endsection
 @section('content')
 
@@ -54,11 +54,12 @@
         $(function () {
             $('input[name="date_range"]').daterangepicker({
                 timePicker: true,
+                timePicker24Hour: true,
                 "startDate": false,
                 "endDate": false,
                 "drops": "down",
                 locale: {
-                    format: 'YYYY/MM/DD h:mm A',
+                    format: 'YYYY/MM/DD hh:mm A',
                     "applyLabel": "Guardar",
                     "cancelLabel": "Cancelar",
                     "fromLabel": "Desde",

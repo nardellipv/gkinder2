@@ -50,6 +50,7 @@ class StudentController extends Controller
 
             $path = Storage::disk('public')->put('fotos/alumnos', $request->file);
             $student->photo = $path;
+
         }
 
         $student->save();
@@ -96,6 +97,7 @@ class StudentController extends Controller
         if ($request->file) {
 
             $path = Storage::disk('public')->put('fotos/alumnos', $request->file);
+
             $student->photo = $path;
         }
         $student->update();

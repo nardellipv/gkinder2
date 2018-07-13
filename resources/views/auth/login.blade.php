@@ -59,7 +59,8 @@
                                         <input id="email" type="email"
                                                class="name{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
                                                value="{{ old('email') }}"
-                                               required autofocus placeholder="email"> @if($errors->has('email'))
+                                               required autofocus placeholder="email"> 
+                                               @if($errors->has('email'))
                                             <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span> @endif

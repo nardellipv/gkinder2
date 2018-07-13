@@ -41,10 +41,13 @@ class CalendarController extends Controller
 
     public function store(CalendarStoreRequest $request)
     {
+//       dd($request->all());
 
-        $date_start = substr($request->date_range, 0, 19);
-        $date_end = substr($request->date_range, 21, 41);
+        $date_start = substr($request->date_range, 0, 16);
+        $date_end = substr($request->date_range, 22, 16);
 
+
+//dd($date_end);
 
         $calendar = new Calendar;
         $calendar->activity = $request['activity'];
