@@ -77,7 +77,7 @@ class TutorController extends Controller
         $tutor->last_name = $request['apellido'];
         $tutor->phone = $request['telefono'];
         $tutor->address = $request['direccion'];
-        $tutor->email = $request['email'];
+//        $tutor->email = $request['email'];
         $tutor->observation = $request['observation'];
 
         if ($request->student_id) {

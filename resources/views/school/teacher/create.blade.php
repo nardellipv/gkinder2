@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6 col-md-offset-4">
-                    <button type="submit" class="btn  btn-primary btn-lg">Crear Tutor</button>
+                    <button type="submit" class="btn  btn-primary btn-lg">Crear</button>
                     <a href="{{route('home')}}" class="btn btn-primary btn-lg">Cancelar</a>
                 </div>
             </div>

@@ -32,10 +32,10 @@
     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url('school/estudiantes/create')}}">Agregar Alumno</a></li>
-                    <li><a href="{{url('school/tutores/create')}}">Agregar Padre/Tutor</a></li>
-                    <li><a href="{{url('school/profesores/create')}}">Agregar Profesor</a></li>
-                    <li><a href="{{url('school/salas/create')}}">Agregar Sala</a></li>
+                    <li><a href="{{url('school/tutores/create')}}">Tutor</a></li>
+                    <li><a href="{{url('school/estudiantes/create')}}">Alumno</a></li>
+                    <li><a href="{{url('school/profesores/create')}}">Profesor</a></li>
+                    <li><a href="{{url('school/salas/create')}}">Sala/Aula</a></li>
                     <li><a href="{{url('school/calendario/create')}}">Crear Evento en el calendario</a></li>
                     <li><a href="{{url('school/circulares/create')}}">Crear Circular</a></li>
                 </ul>
