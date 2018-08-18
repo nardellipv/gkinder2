@@ -22,7 +22,7 @@
                     <th>teléfono</th>
                     <th width="100">dirección</th>
                     <th>Email</th>
-                    <th>room</th>
+                    <th>Sala</th>
                     <th>Acciones</th>
                 </tr>
                 </thead>
@@ -34,7 +34,11 @@
                         <td>{{ $teacher->phone }}</td>
                         <td>{{ substr ($teacher->address,0,60) }}</td>
                         <td>{{ $teacher->email }}</td>
-                        <td>{{ $teacher->room->name }}</td>
+                        @if(!isset($teacher->room->name))
+                            <td><span class="label label-info">Sin sala asignada</span></td>
+                        @else
+                            <td>{{ $teacher->room->name }}</td>
+                        @endif
                         <td>
                             <div class="btn-group">
                                 <a href="{{url('school/profesores', $teacher->id)}}" class="btn btn-primary">Perfil</a>
