@@ -1,7 +1,7 @@
 <div class="w3_agile_header">
     <div class="container">
         <div class="w3_agile_header_left">
-            <img src="{{ asset('front/images/1.png') }}">
+            <img src="{{ asset('front/images/logo-profile.png') }}">
         </div>
         <div class="w3_agile_header_right">
             <ul>
@@ -28,9 +28,8 @@
                 <nav class="menu menu--miranda">
                     <ul class="nav navbar-nav menu__list">
                         <li class="menu__item"><a href="#events" class="scroll menu__link">Nosotros</a></li>
-                        <li class="menu__item"><a href="#faq" class="scroll menu__link">Preguntas</a></li>
-                        <li class="menu__item"><a href="#software" class="scroll menu__link">Software</a></li>
                         <li class="menu__item"><a href="#issues" class="scroll menu__link">Caracteristicas</a></li>
+                        <li class="menu__item"><a href="#faq" class="scroll menu__link">Preguntas</a></li>
                         <li class="menu__item"><a href="#prices" class="scroll menu__link">Precios</a></li>
                         <li class="menu__item"><a href="#mail" class="scroll menu__link">Contacto</a></li>
                     </ul>

@@ -21,6 +21,7 @@
                 </div>
                 <div class="col-xs-8 agile_contact_grid_right agileits_w3layouts_right">
                     <h4>Teléfono</h4>
+                    <p>+(54) 2616867875</p>
                     <p>+(54) 2615965966</p>
                 </div>
                 <div class="clearfix"></div>

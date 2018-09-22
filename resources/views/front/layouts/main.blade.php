@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //issues -->
 
 <!-- stats -->
-@include('front.layouts.parts.stats')
+{{--@include('front.layouts.parts.stats')--}}
 <!-- //stats -->
 <!-- events -->
 @include('front.layouts.parts.about')
